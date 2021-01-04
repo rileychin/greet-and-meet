@@ -1,0 +1,2 @@
+include ':app'
+rootProject.name = "Greet&Meet_v1"

@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MyProfile">
+
+    <com.scwang.wave.MultiWaveHeader
+        android:id="@+id/wave_header"
+        android:layout_width="match_parent"
+        android:layout_height="222dp"
+        android:layout_alignParentBottom="true"
+        app:mwhStartColor="#1A2C78"
+        app:mwhCloseColor="#46B7C1"
+        tools:ignore="MissingConstraints"/>
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/profile_image"
+        android:layout_width="161dp"
+        android:layout_height="128dp"
+        android:layout_above="@+id/button_choose_image"
+        android:layout_below="@+id/button_skip"
+        android:layout_marginTop="32dp"
+        app:civ_border_color="@android:color/black"
+        app:civ_border_width="2dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/userName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Name"
+        android:textStyle="bold"
+        android:textSize="20dp"
+        android:textColor="#000000"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/profile_image" />
+
+    <TextView
+        android:id="@+id/header1"
+        android:layout_width="419dp"
+        android:layout_height="28dp"
+        android:layout_marginTop="8dp"
+        android:background="#316B95"
+        android:text="MY GROUPS"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold"
+        android:textSize="18dp"
+        android:typeface="normal"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.571"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/userName" />
+
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/groupsLayout"
+        android:layout_width="422dp"
+        android:layout_height="195dp"
+        android:layout_marginTop="1dp"
+        android:backgroundTint="#F9F9F9"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/header1" />
+
+    <Button
+        android:id="@+id/logout"
+        android:layout_width="88dp"
+        android:layout_height="35dp"
+        android:layout_marginHorizontal="320dp"
+        android:text="Logout"
+        android:textColor="#FFFFFF"
+        android:background="@drawable/custom_button"
+        android:typeface="normal"
+        app:layout_constraintBottom_toTopOf="@+id/profile_image"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteX="169dp" />
+
+    <Button
+        android:id="@+id/btnAttending"
+        android:layout_width="208dp"
+        android:layout_height="47dp"
+        android:text="Attending"
+        android:textColor="#FFFFFF"
+        android:background="@drawable/custom_button"
+        android:typeface="normal"
+        android:textSize="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.58" />
+
+    <Button
+        android:id="@+id/btnBookmarked"
+        android:layout_width="208dp"
+        android:layout_height="47dp"
+        android:text="Bookmarked"
+        android:textColor="#FFFFFF"
+        android:background="@drawable/custom_button"
+        android:typeface="normal"
+        android:textSize="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.58" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/attending_bookmarked_recycerView"
+        android:layout_width="409dp"
+        android:layout_height="209dp"
+        android:layout_marginTop="2dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnBookmarked"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/navigation"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_marginTop="669dp"
+        android:background="#2D608D"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+        app:itemIconTint="#fff"
+        app:itemTextColor="#fff"
+        app:menu="@menu/nav_menu" />
+
+    <Button
+        android:id="@+id/upload"
+        android:layout_width="120dp"
+        android:layout_height="100dp"
+        android:text="Upload Profile Image"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/wave_header"
+        app:layout_constraintVertical_bias="0.07" />
+
+    <ProgressBar
+        android:id="@+id/profileprogressBar"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/wave_header"
+        app:layout_constraintVertical_bias="0.10" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

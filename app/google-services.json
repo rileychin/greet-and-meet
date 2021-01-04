@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "230189164792",
+    "firebase_url": "https://greetmeet-edc23.firebaseio.com",
+    "project_id": "greetmeet-edc23",
+    "storage_bucket": "greetmeet-edc23.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:230189164792:android:8e630a83ecdd7a4c02b30d",
+        "android_client_info": {
+          "package_name": "com.example.greetmeet_v1"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "230189164792-dqvs1rvhbue4tsbl8ept3b1ur80imvmk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD6MN1G6Cxtj6k9Xt5zgvMWWxJ7a8Pqnas"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "230189164792-dqvs1rvhbue4tsbl8ept3b1ur80imvmk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
