@@ -36,9 +36,7 @@ public class AdapterClass extends RecyclerView.Adapter<AdapterClass.MyViewHolder
 
     public void onBindViewHolder(@NonNull MyViewHolder myViewHolder, int i){
         Group group = list.get(i);
-        myViewHolder.gName.setText(list.get(i).getGroupName());
-        myViewHolder.gCategory.setText(list.get(i).getCategorySpinner());
-        myViewHolder.gLoc.setText(list.get(i).getGroupLoc());
+        myViewHolder.gName.setText(group.getGroupName());
         myViewHolder.gPic.setVisibility(View.INVISIBLE);
         Picasso.with(mcontext)
                 .load(group.getGroupImgURL())
@@ -70,9 +68,6 @@ public class AdapterClass extends RecyclerView.Adapter<AdapterClass.MyViewHolder
         public MyViewHolder(@NonNull View itemView){
             super(itemView);
             gName = itemView.findViewById(R.id.gName);
-            gCategory = itemView.findViewById(R.id.gDesc);
-            gLoc = itemView.findViewById(R.id.gLoc);
-            parentLayout = itemView.findViewById(R.id.cardId);
             gPic = itemView.findViewById(R.id.gPic);
 
         }
