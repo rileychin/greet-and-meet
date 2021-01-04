@@ -35,7 +35,7 @@ public class MainFeed extends AppCompatActivity{
     DatabaseReference reff;
     ArrayList<Group> list;
     RecyclerView recyclerView;
-    SearchView searchView;
+//    SearchView searchView;
     AdapterClass adapterClass;
     AdapterClass.RecyclerViewClickListener listener;
     Button createGroup;
@@ -57,7 +57,7 @@ public class MainFeed extends AppCompatActivity{
 
         reff = FirebaseDatabase.getInstance().getReference().child("Group");
         list = new ArrayList<>();
-        searchView = (SearchView)findViewById(R.id.searchView);
+//        searchView = (SearchView)findViewById(R.id.searchView);
 //        createGroup = (Button)findViewById(R.id.createGroup);
 //        createGroup.setOnClickListener(new View.OnClickListener() {
 //            @Override
@@ -162,21 +162,21 @@ public class MainFeed extends AppCompatActivity{
             });
         }
 
-        if (searchView != null){
-            searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener(){
-                @Override
-                public boolean onQueryTextSubmit(String query) {
-                    return false;
-                }
-
-                @Override
-                public boolean onQueryTextChange(String s) {
-                    search(s);
-                    return false;
-                }
-
-            });
-        }
+//        if (searchView != null){
+//            searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener(){
+//                @Override
+//                public boolean onQueryTextSubmit(String query) {
+//                    return false;
+//                }
+//
+//                @Override
+//                public boolean onQueryTextChange(String s) {
+//                    search(s);
+//                    return false;
+//                }
+//
+//            });
+//        }
     }
 
 
