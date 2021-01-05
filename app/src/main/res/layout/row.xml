@@ -11,6 +11,9 @@
     android:scrollbars="vertical"
     app:cardCornerRadius="20dp">
 
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
     <ImageView
         android:id="@+id/gPic"
         android:layout_width="match_parent"
@@ -20,16 +23,39 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@android:drawable/btn_star_big_on" />
 
-    <TextView
-        android:id="@+id/gName"
-        android:layout_width="match_parent"
-        android:layout_height="79dp"
-        android:layout_gravity="bottom"
-        android:background="#AAF4F0F0"
-        android:gravity="center"
-        android:text="test"
-        android:textColor="#000000"
-        android:textSize="36sp"
-        android:textStyle="bold" />
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_gravity="bottom"
+            android:layout_width="match_parent"
+            android:layout_height="70dp">
 
+            <TextView
+            android:id="@+id/gName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:background="#AAF4F0F0"
+            android:gravity="center"
+            android:text="Group Name"
+            android:textColor="#000000"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+            <TextView
+            android:id="@+id/gLoc"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="bottom"
+            android:textColor="#000000"
+            android:textSize="10sp"
+            android:textStyle="bold"
+            android:background="#AAF4F0F0"
+            android:gravity="center"
+            android:text="Group Location" />
+
+
+        </LinearLayout>
+
+
+    </FrameLayout>
 </androidx.cardview.widget.CardView>
