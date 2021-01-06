@@ -22,8 +22,6 @@
         android:layout_above="@+id/button_choose_image"
         android:layout_below="@+id/button_skip"
         android:layout_marginTop="32dp"
-        app:civ_border_color="@android:color/black"
-        app:civ_border_width="2dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
