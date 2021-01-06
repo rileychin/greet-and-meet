@@ -9,7 +9,8 @@
     android:layout_marginTop="10dp"
     android:layout_marginBottom="20dp"
     android:scrollbars="vertical"
-    app:cardCornerRadius="20dp">
+    app:cardCornerRadius="20dp"
+    android:id="@+id/cardId">
 
     <FrameLayout
         android:layout_width="match_parent"
@@ -62,11 +63,12 @@
 
         </LinearLayout>
         <de.hdodenhof.circleimageview.CircleImageView
-            android:layout_gravity="right|bottom"
+            android:layout_gravity="left|top"
             android:id="@+id/host_image"
-            android:layout_height="40dp"
-            android:layout_width="40dp"
-            android:layout_marginTop="32dp"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
