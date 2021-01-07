@@ -13,6 +13,14 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -34,7 +42,8 @@ public class AdapterClass extends RecyclerView.Adapter<AdapterClass.MyViewHolder
         return new MyViewHolder(view);
     }
 
-    public void onBindViewHolder(@NonNull MyViewHolder myViewHolder, int i){
+    public void onBindViewHolder(@NonNull MyViewHolder myViewHolder, int i) {
+        FirebaseUser fuser;
         Group group = list.get(i);
         myViewHolder.gName.setText(group.getGroupName());
         myViewHolder.gLoc.setText(group.getGroupLoc());
@@ -57,13 +66,55 @@ public class AdapterClass extends RecyclerView.Adapter<AdapterClass.MyViewHolder
                             }
                         }
                 );
+
+
+        Users host = group.getHost();
+        DatabaseReference user = FirebaseDatabase.getInstance().getReference("User").child(host.getId());
+        myViewHolder.host_image.setVisibility(View.INVISIBLE);
+        user.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if (((Boolean) snapshot.child("profilePic").getValue()) && snapshot.child("imageURL").getValue() != null){
+                    String imgUrl = snapshot.child("imageURL").getValue().toString();
+                    Picasso.with(mcontext)
+                            .load(imgUrl)
+                            .placeholder(R.mipmap.ic_launcher)
+                            .fit()
+                            .centerCrop()
+                            .into(myViewHolder.host_image, new Callback() {
+                                        @Override
+                                        public void onSuccess() {
+                                            myViewHolder.host_image.setVisibility(View.VISIBLE);
+                                            Animations.fadeInAndShowImage(myViewHolder.host_image);
+                                        }
+
+                                        @Override
+                                        public void onError() {
+                                            Toast.makeText(mcontext, "Image cannot be displayed", Toast.LENGTH_SHORT).show();
+                                        }
+                                    }
+                            );
+                }
+                else{
+                    myViewHolder.host_image.setVisibility(View.INVISIBLE);
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
     }
-    public int getItemCount(){
+
+
+        public int getItemCount(){
         return list.size();
     }
     public class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
         TextView gName, gCategory, gLoc,gDate;
-        ImageView gPic;
+        ImageView gPic,host_image;
         LinearLayout parentLayout;
         //OnNoteListener onNoteListener;
         public MyViewHolder(@NonNull View itemView){
@@ -71,7 +122,7 @@ public class AdapterClass extends RecyclerView.Adapter<AdapterClass.MyViewHolder
             gName = itemView.findViewById(R.id.gName);
             gPic = itemView.findViewById(R.id.gPic);
             gLoc = itemView.findViewById(R.id.gLoc);
-
+            host_image = itemView.findViewById(R.id.host_image);
         }
         @Override
         public void onClick(View view){

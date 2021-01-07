@@ -9,7 +9,8 @@
     android:layout_marginTop="10dp"
     android:layout_marginBottom="20dp"
     android:scrollbars="vertical"
-    app:cardCornerRadius="20dp">
+    app:cardCornerRadius="20dp"
+    android:id="@+id/cardId">
 
     <FrameLayout
         android:layout_width="match_parent"
@@ -38,8 +39,12 @@
             android:gravity="center"
             android:text="Group Name"
             android:textColor="#000000"
-            android:fontFamily="sans-serif"
-            android:textSize="20sp" />
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:autoSizeTextType="uniform"
+            android:autoSizeMinTextSize="20sp"
+            android:autoSizeMaxTextSize="100sp"
+            android:autoSizeStepGranularity="2sp" />
 
             <TextView
             android:id="@+id/gLoc"
@@ -47,16 +52,26 @@
             android:layout_height="match_parent"
             android:layout_gravity="bottom"
             android:textColor="#000000"
-            android:textSize="15sp"
-                android:fontFamily="sans-serif"
-            android:textStyle="italic"
+            android:textStyle="bold"
             android:background="#AAF4F0F0"
             android:gravity="center"
-            android:text="Group Location" />
+                android:autoSizeTextType="uniform"
+                android:autoSizeMinTextSize="12sp"
+                android:autoSizeMaxTextSize="20sp"
+            android:autoSizeStepGranularity="1sp" />
 
 
         </LinearLayout>
-
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:layout_gravity="left|top"
+            android:id="@+id/host_image"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
     </FrameLayout>
 </androidx.cardview.widget.CardView>
