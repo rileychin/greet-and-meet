@@ -407,6 +407,10 @@ public class MyProfile extends AppCompatActivity {
                     finish();
                 }
 
+                if (id == R.id.ic_search){
+                    startActivity(new Intent(MyProfile.this, SearchActivity.class));
+                }
+
                 if (id == R.id.ic_group) {
                     Intent intent2 = new Intent(MyProfile.this, CreateGroup.class);
                     intent2.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);

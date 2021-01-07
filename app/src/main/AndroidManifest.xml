@@ -12,26 +12,37 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MyProfile"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".CreateGroupConfirmation"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".CreateGroup"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".EventDetails"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".MainFeed"
+        <activity android:name=".SearchActivity"></activity>
+        <activity
+            android:name=".MyProfile"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".CreateGroupConfirmation"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".CreateGroup"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".EventDetails"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".MainFeed"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateVisible|adjustPan"/>
-        <activity android:name=".LoginTest"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".CategoriesRegistration"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".Register"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".ProfileUpload"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".MainActivity"
+            android:windowSoftInputMode="stateVisible|adjustPan" />
+        <activity
+            android:name=".LoginTest"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".CategoriesRegistration"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Register"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ProfileUpload"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".MainActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
