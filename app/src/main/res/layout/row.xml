@@ -38,8 +38,8 @@
             android:gravity="center"
             android:text="Group Name"
             android:textColor="#000000"
-            android:textSize="20sp"
-            android:textStyle="bold" />
+            android:fontFamily="sans-serif"
+            android:textSize="20sp" />
 
             <TextView
             android:id="@+id/gLoc"
@@ -47,8 +47,9 @@
             android:layout_height="match_parent"
             android:layout_gravity="bottom"
             android:textColor="#000000"
-            android:textSize="10sp"
-            android:textStyle="bold"
+            android:textSize="15sp"
+                android:fontFamily="sans-serif"
+            android:textStyle="italic"
             android:background="#AAF4F0F0"
             android:gravity="center"
             android:text="Group Location" />

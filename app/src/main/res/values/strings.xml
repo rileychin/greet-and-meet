@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Greet&amp;Meet_v1</string>
+    <string name="greet_meet"><![CDATA[Greet&Meet]]></string>
 </resources>

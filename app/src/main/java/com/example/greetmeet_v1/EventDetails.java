@@ -777,11 +777,11 @@ public class EventDetails extends AppCompatActivity {
                     //finish();
                 }
 
-                if (id == R.id.ic_group) {
-                    Intent intent2 = new Intent(EventDetails.this, CreateGroup.class);
-                    startActivity(intent2);
+                //if (id == R.id.ic_search) {
+                    //Intent intent2 = new Intent(EventDetails.this, CreateGroup.class);
+                    //startActivity(intent2);
                     //finish();
-                }
+                //}
 
                 return true;
             }

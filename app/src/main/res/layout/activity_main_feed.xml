@@ -7,14 +7,22 @@
     android:background="#FFFFFF"
     tools:context=".MainFeed">
 
-    <com.scwang.wave.MultiWaveHeader
-        android:id="@+id/wave_header"
+    <TextView
+        android:id="@+id/MainFeedTitle"
         android:layout_width="match_parent"
-        android:layout_height="80dp"
-        android:layout_alignParentBottom="true"
-        app:mwhStartColor="#1A2C78"
-        app:mwhCloseColor="#46B7C1"
-        tools:ignore="MissingConstraints"/>
+        android:layout_height="70dp"
+        android:text="@string/greet_meet"
+        android:textSize="35sp"
+        android:fontFamily="cursive"
+        android:textColor="#FFFF"
+        android:gravity="center"
+        android:background="#2D608D"
+        app:layout_constraintBottom_toTopOf="@id/recycleView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.142" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycleView"
@@ -24,7 +32,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/wave_header"
+        app:layout_constraintTop_toBottomOf="@id/MainFeedTitle"
         app:layout_constraintVertical_bias="0.0" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
@@ -39,5 +47,23 @@
         app:itemIconTint="#fff"
         app:itemTextColor="#fff"
         app:menu="@menu/nav_menu" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/addBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:scaleType="center"
+        app:backgroundTint="#29B3BF"
+        app:srcCompat="@drawable/ic_baseline_add_final"
+        app:fabSize="normal"
+        app:fabCustomSize="70dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.973"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.9"
+        tools:ignore="MissingConstraints,VectorDrawableCompat" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

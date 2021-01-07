@@ -407,12 +407,12 @@ public class MyProfile extends AppCompatActivity {
                     finish();
                 }
 
-                if (id == R.id.ic_group) {
-                    Intent intent2 = new Intent(MyProfile.this, CreateGroup.class);
-                    intent2.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                    startActivity(intent2);
-                    finish(); // does not terminate properly for some reason
-                }
+                //if (id == R.id.ic_search) {
+                    //Intent intent2 = new Intent(MyProfile.this, CreateGroup.class);
+                    //intent2.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    //startActivity(intent2);
+                    //finish(); // does not terminate properly for some reason
+                //}
 
                 return true;
             }
