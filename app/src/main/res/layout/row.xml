@@ -45,7 +45,8 @@
             android:autoSizeTextType="uniform"
             android:autoSizeMinTextSize="20sp"
             android:autoSizeMaxTextSize="100sp"
-            android:autoSizeStepGranularity="2sp" />
+            android:autoSizeStepGranularity="2sp"
+                />
 
             <TextView
             android:id="@+id/gLoc"
