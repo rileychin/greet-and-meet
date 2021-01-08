@@ -7,6 +7,7 @@
     app:flow_horizontalAlign="start"
     tools:context=".EventDetails">
 
+
     <ImageView
         android:id="@+id/eventImg"
         android:layout_width="match_parent"

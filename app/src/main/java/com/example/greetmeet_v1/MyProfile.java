@@ -406,7 +406,7 @@ public class MyProfile extends AppCompatActivity {
                     startActivity(intent3);
                     finish();
                 }
-
+              
                 if (id == R.id.ic_search){
                     startActivity(new Intent(MyProfile.this, SearchActivity.class));
                 }
@@ -417,7 +417,6 @@ public class MyProfile extends AppCompatActivity {
                     startActivity(intent2);
                     finish(); // does not terminate properly for some reason
                 }
-
                 return true;
             }
         });

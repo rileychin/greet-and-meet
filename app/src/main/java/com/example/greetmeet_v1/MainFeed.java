@@ -16,6 +16,7 @@ import android.widget.Button;
 import android.widget.SearchView;
 import android.widget.Toast;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -39,6 +40,7 @@ public class MainFeed extends AppCompatActivity{
     AdapterClass adapterClass;
     AdapterClass.RecyclerViewClickListener listener;
     Button createGroup;
+    FloatingActionButton addBtn;
 
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
@@ -82,6 +84,16 @@ public class MainFeed extends AppCompatActivity{
             }
         }));
 
+        addBtn = (FloatingActionButton)findViewById(R.id.addBtn);
+        addBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent start = new Intent(MainFeed.this,CreateGroup.class);
+                startActivity(start);
+                //finish();
+            }
+        });
+
         BottomNavigationView bottomNavigationView = (BottomNavigationView) findViewById(R.id.navigation);
         BottomNavigationViewHelper.disableShiftMode(bottomNavigationView);
         Menu menu = bottomNavigationView.getMenu();
@@ -111,9 +123,7 @@ public class MainFeed extends AppCompatActivity{
                 if (id == R.id.ic_group) {
                     Intent intent2 = new Intent(MainFeed.this, CreateGroup.class);
                     startActivity(intent2);
-                    //finish();
                 }
-
                 return true;
             }
         });
