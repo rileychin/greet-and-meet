@@ -387,7 +387,7 @@ public class MyProfile extends AppCompatActivity {
         BottomNavigationView bottomNavigationView = (BottomNavigationView) findViewById(R.id.navigation);
         BottomNavigationViewHelper.disableShiftMode(bottomNavigationView);
         Menu menu = bottomNavigationView.getMenu();
-        MenuItem menuItem = menu.getItem(3);
+        MenuItem menuItem = menu.getItem(2);
         menuItem.setChecked(true);
 
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -411,12 +411,7 @@ public class MyProfile extends AppCompatActivity {
                     startActivity(new Intent(MyProfile.this, SearchActivity.class));
                 }
 
-                if (id == R.id.ic_group) {
-                    Intent intent2 = new Intent(MyProfile.this, CreateGroup.class);
-                    intent2.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                    startActivity(intent2);
-                    finish(); // does not terminate properly for some reason
-                }
+
                 return true;
             }
         });

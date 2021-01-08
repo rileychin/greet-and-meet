@@ -120,10 +120,6 @@ public class MainFeed extends AppCompatActivity{
                     startActivity(new Intent(MainFeed.this, SearchActivity.class));
                 }
 
-                if (id == R.id.ic_group) {
-                    Intent intent2 = new Intent(MainFeed.this, CreateGroup.class);
-                    startActivity(intent2);
-                }
                 return true;
             }
         });

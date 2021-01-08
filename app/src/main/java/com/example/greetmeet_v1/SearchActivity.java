@@ -77,11 +77,6 @@ public class SearchActivity extends AppCompatActivity {
                     finish();
                 }
 
-                if (id == R.id.ic_group) {
-                    //intent2.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                    startActivity(new Intent(SearchActivity.this, CreateGroup.class));
-                    finish(); // does not terminate properly for some reason
-                }
                 return true;
             }
         });
