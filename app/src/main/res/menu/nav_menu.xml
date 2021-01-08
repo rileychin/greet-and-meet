@@ -15,8 +15,8 @@
         app:showAsAction="ifRoom"/>
 
     <item
-        android:id="@+id/ic_search"
-        android:icon="@drawable/ic_baseline_search_24"
+        android:id="@+id/ic_group"
+        android:icon="@drawable/ic_baseline_add"
         android:title="Search"
         app:showAsAction="ifRoom"/>
 

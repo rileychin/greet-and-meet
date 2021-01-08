@@ -778,7 +778,6 @@ public class EventDetails extends AppCompatActivity {
                     //finish();
                 }
 
-
                 if (id == R.id.ic_search){
                     startActivity(new Intent(EventDetails.this, SearchActivity.class));
                 }

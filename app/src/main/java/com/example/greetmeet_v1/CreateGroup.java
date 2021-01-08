@@ -199,7 +199,7 @@ public class CreateGroup extends AppCompatActivity {
         BottomNavigationView bottomNavigationView = (BottomNavigationView) findViewById(R.id.navigation);
         BottomNavigationViewHelper.disableShiftMode(bottomNavigationView);
         Menu menu = bottomNavigationView.getMenu();
-        MenuItem menuItem = menu.getItem(0);
+        MenuItem menuItem = menu.getItem(2);
         menuItem.setChecked(true);
 
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -220,7 +220,6 @@ public class CreateGroup extends AppCompatActivity {
                 if (id == R.id.ic_search){
                     startActivity(new Intent(CreateGroup.this, SearchActivity.class));
                 }
-
 
                 return true;
             }
