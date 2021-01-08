@@ -217,11 +217,10 @@ public class CreateGroup extends AppCompatActivity {
                     startActivity(intent1);
                     //finish();
                 }
+                if (id == R.id.ic_search){
+                    startActivity(new Intent(CreateGroup.this, SearchActivity.class));
+                }
 
-                //if (id == R.id.ic_search) {
-//                    Intent intent2 = new Intent(CreateGroup.this, CreateGroup.class);
-//                    startActivity(intent2);
-                //}
 
                 return true;
             }

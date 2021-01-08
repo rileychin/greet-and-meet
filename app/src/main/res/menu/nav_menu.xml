@@ -8,7 +8,11 @@
         android:icon="@drawable/ic_baseline_home_24"
         android:title="Home"
         app:showAsAction="ifRoom"/>
-
+    <item
+        android:id="@+id/ic_search"
+        android:icon="@drawable/ic_baseline_search_24"
+        android:title="Search"
+        app:showAsAction="ifRoom"/>
 
     <item
         android:id="@+id/ic_search"

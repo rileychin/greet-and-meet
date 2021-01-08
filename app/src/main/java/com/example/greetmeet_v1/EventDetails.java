@@ -66,6 +66,7 @@ import java.util.Objects;
 import java.util.TimeZone;
 
 
+
 public class EventDetails extends AppCompatActivity {
     EditText eventName,eventDesc,eventHost,eventLocation,eventDate;
     ImageView eventImage, newEventImage;
@@ -777,12 +778,15 @@ public class EventDetails extends AppCompatActivity {
                     //finish();
                 }
 
-                //if (id == R.id.ic_search) {
-                    //Intent intent2 = new Intent(EventDetails.this, CreateGroup.class);
-                    //startActivity(intent2);
-                    //finish();
-                //}
 
+                if (id == R.id.ic_search){
+                    startActivity(new Intent(EventDetails.this, SearchActivity.class));
+                }
+
+                if (id == R.id.ic_group) {
+                    Intent intent2 = new Intent(EventDetails.this, CreateGroup.class);
+                    startActivity(intent2);
+                }
                 return true;
             }
         });
