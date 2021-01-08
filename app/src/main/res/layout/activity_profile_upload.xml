@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:background="#FFFFFF"
+    tools:context=".ProfileUpload">
+
+    <Button
+        android:id="@+id/button_choose_image"
+        android:layout_width="130dp"
+        android:layout_height="wrap_content"
+        android:text="Choose file"
+        android:textSize="18dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:textColor="#FFFFFF"
+        android:background="@drawable/custom_button"/>
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/profile_image"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:civ_border_width="2dp"
+        app:civ_border_color="@android:color/black"
+        android:layout_below="@+id/button_skip"
+        android:layout_above="@+id/button_choose_image"
+        android:layout_marginBottom="30dp"
+        android:layout_marginTop="20dp"
+        />
+
+
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/button_upload"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="16dp" />
+
+    <Button
+        android:id="@+id/button_upload"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:text="Finish"
+        android:textSize="18dp"
+        android:textColor="#FFFFFF"
+        android:background="@drawable/custom_button"/>
+
+
+    <Button
+        android:id="@+id/button_skip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="skip"
+        android:textSize="18dp"
+        android:layout_alignParentRight="true"
+        android:textColor="#FFFFFF"
+        android:background="@drawable/custom_button"
+        />
+
+</RelativeLayout>
