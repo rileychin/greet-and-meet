@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import java.util.concurrent.TimeUnit;
 import android.content.Intent;
@@ -41,11 +42,11 @@ public class MainFeed extends AppCompatActivity{
     AdapterClass.RecyclerViewClickListener listener;
     Button createGroup;
     FloatingActionButton addBtn;
+    SwipeRefreshLayout refresh;
 
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if (keyCode == KeyEvent.KEYCODE_BACK) {
-            //preventing default implementation previous to android.os.Build.VERSION_CODES.ECLAIR
             return true;
         }
         return super.onKeyDown(keyCode, event);
@@ -59,14 +60,19 @@ public class MainFeed extends AppCompatActivity{
 
         reff = FirebaseDatabase.getInstance().getReference().child("Group");
         list = new ArrayList<>();
-//        searchView = (SearchView)findViewById(R.id.searchView);
-//        createGroup = (Button)findViewById(R.id.createGroup);
-//        createGroup.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                startActivity(new Intent(MainFeed.this,CreateGroup.class));
-//            }
-//        });
+
+        //refresh by swiping up
+        refresh = findViewById(R.id.refresh);
+        refresh.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                onStart();
+                if(refresh.isRefreshing()){
+                    refresh.setRefreshing(false);
+                }
+            }
+        });
+
         recyclerView = (RecyclerView)findViewById(R.id.recycleView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         //move to EventDetails
