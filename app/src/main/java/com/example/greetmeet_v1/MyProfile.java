@@ -417,7 +417,6 @@ public class MyProfile extends AppCompatActivity {
         });
 
         //adding groups created to horizontal recycler view
-        Toast.makeText(MyProfile.this,groupsAttendingName.toString(), Toast.LENGTH_LONG).show();
         if (groupRef!=null){
             groupRef.addValueEventListener(new ValueEventListener(){
                 public void onDataChange(@NonNull DataSnapshot dataSnapshot){
