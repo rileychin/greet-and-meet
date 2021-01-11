@@ -54,8 +54,8 @@ import java.util.HashMap;
 public class CreateGroup extends AppCompatActivity {
     private static final int PICK_IMAGE_REQUEST = 1;
     private ProgressBar mProgressBar;
-    Button createGroup, imgUpload, TimeSelector, DateSelector;
-    EditText groupName, groupDesc, groupLoc;
+    Button createGroup;
+    EditText groupName, groupDesc, groupLoc, DateTimeSelector;
     Spinner categorySpinner;
     ImageView groupPic;
     private Uri mImageUri;
@@ -87,18 +87,20 @@ public class CreateGroup extends AppCompatActivity {
         groupLoc = (EditText) findViewById(R.id.gLoc);
         groupPic = (ImageView) findViewById(R.id.groupPic);
         categorySpinner = (Spinner) findViewById(R.id.categorySpinner);
-        imgUpload = (Button)findViewById(R.id.imgUpload);
+//        imgUpload = (Button)findViewById(R.id.imgUpload);
         mProgressBar = (ProgressBar)findViewById(R.id.progressBar);
         mProgressBar.setVisibility(View.GONE);
-        TimeSelector = (Button) findViewById(R.id.TimeSelector);
-        DateSelector = (Button) findViewById(R.id.DateSelector);
+//        TimeSelector = (Button) findViewById(R.id.TimeSelector);
+//        DateSelector = (Button) findViewById(R.id.DateSelector);
+        DateTimeSelector = (EditText)findViewById(R.id.DateTimeSelector);
         String[] categories = new String[]{"Game", "Tech", "Sports","Education","Recreation","Food","General"};
 
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, categories);
         categorySpinner.setAdapter(adapter);
         progressDialog = new ProgressDialog(CreateGroup.this);
 
-        DateSelector.setOnClickListener(new View.OnClickListener() {
+        //Date & Time selector combined into 1 selection
+        DateTimeSelector.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Calendar calendar = Calendar.getInstance();
@@ -113,41 +115,83 @@ public class CreateGroup extends AppCompatActivity {
                         Month = month;
                         Date = dayOfMonth;
 
-                        Calendar calendar1 = Calendar.getInstance();
-                        calendar1.set(Calendar.YEAR, year);
-                        calendar1.set(Calendar.MONTH,month);
-                        calendar1.set(Calendar.DATE,dayOfMonth);
-                        CharSequence dateformatting = DateFormat.format("EEEE, dd MMM yyyy",calendar1);
-                        DateSelector.setText(dateformatting);
+                        int hour = calendar.get(Calendar.HOUR);
+                        int minute1 = calendar.get(Calendar.MINUTE);
+                        TimePickerDialog timePickerDialog = new TimePickerDialog(CreateGroup.this, new TimePickerDialog.OnTimeSetListener() {
+                            @Override
+                            public void onTimeSet(TimePicker timePicker, int hourOfDay, int minute) {
+                                Hour = hourOfDay;
+                                Minute = minute;
+
+                                Calendar calendar1 = Calendar.getInstance();
+                                calendar1.set(Calendar.HOUR_OF_DAY, hourOfDay);
+                                calendar1.set(Calendar.MINUTE,minute);
+                                calendar1.set(Calendar.YEAR, year);
+                                calendar1.set(Calendar.MONTH,month);
+                                calendar1.set(Calendar.DATE,dayOfMonth);
+                                CharSequence charSequence = DateFormat.format("dd MMM yyyy hh:mm a",calendar1);
+                                DateTimeSelector.setText(charSequence);
+                            }
+                        },hour, minute1, false);
+                        timePickerDialog.show();
                     }
                 },year, month,date);
                 datePickerDialog.show();
             }
         });
-        TimeSelector.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Calendar calendar = Calendar.getInstance();
-                int hour = calendar.get(Calendar.HOUR);
-                int minute1 = calendar.get(Calendar.MINUTE);
-                TimePickerDialog timePickerDialog = new TimePickerDialog(CreateGroup.this, new TimePickerDialog.OnTimeSetListener() {
-                    @Override
-                    public void onTimeSet(TimePicker timePicker, int hourOfDay, int minute) {
-                        Hour = hourOfDay;
-                        Minute = minute;
+//
+//        DateSelector.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Calendar calendar = Calendar.getInstance();
+//                int year = calendar.get(Calendar.YEAR);
+//                int month = calendar.get(Calendar.MONTH);
+//                int date = calendar.get(Calendar.DATE);
+//
+//                DatePickerDialog datePickerDialog = new DatePickerDialog(CreateGroup.this, new DatePickerDialog.OnDateSetListener() {
+//                    @Override
+//                    public void onDateSet(DatePicker datePicker, int year, int month, int dayOfMonth) {
+//                        Year = year;
+//                        Month = month;
+//                        Date = dayOfMonth;
+//
+//
+//
+//                        Calendar calendar1 = Calendar.getInstance();
+//                        calendar1.set(Calendar.YEAR, year);
+//                        calendar1.set(Calendar.MONTH,month);
+//                        calendar1.set(Calendar.DATE,dayOfMonth);
+//                        CharSequence dateformatting = DateFormat.format("EEEE, dd MMM yyyy",calendar1);
+//                        DateSelector.setText(dateformatting);
+//                    }
+//                },year, month,date);
+//                datePickerDialog.show();
+//            }
+//        });
+//        TimeSelector.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Calendar calendar = Calendar.getInstance();
+//                int hour = calendar.get(Calendar.HOUR);
+//                int minute1 = calendar.get(Calendar.MINUTE);
+//                TimePickerDialog timePickerDialog = new TimePickerDialog(CreateGroup.this, new TimePickerDialog.OnTimeSetListener() {
+//                    @Override
+//                    public void onTimeSet(TimePicker timePicker, int hourOfDay, int minute) {
+//                        Hour = hourOfDay;
+//                        Minute = minute;
+//
+//                        Calendar calendar1 = Calendar.getInstance();
+//                        calendar1.set(Calendar.HOUR_OF_DAY, hourOfDay);
+//                        calendar1.set(Calendar.MINUTE,minute);
+//                        CharSequence charSequence = DateFormat.format("hh:mm a",calendar1);
+//                        TimeSelector.setText(charSequence);
+//                    }
+//                },hour, minute1, false);
+//                timePickerDialog.show();
+//            }
+//        });
 
-                        Calendar calendar1 = Calendar.getInstance();
-                        calendar1.set(Calendar.HOUR_OF_DAY, hourOfDay);
-                        calendar1.set(Calendar.MINUTE,minute);
-                        CharSequence charSequence = DateFormat.format("hh:mm a",calendar1);
-                        TimeSelector.setText(charSequence);
-                    }
-                },hour, minute1, false);
-                timePickerDialog.show();
-            }
-        });
-
-        imgUpload.setOnClickListener(new View.OnClickListener() {
+        groupPic.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 openFileChooser();
@@ -181,9 +225,6 @@ public class CreateGroup extends AppCompatActivity {
                         date_and_time.add(Hour); //index 3 HOUR
                         date_and_time.add(Minute); //index 4 MINUTE
                         group.setDateCreated(date_and_time);
-
-
-                        //Toast.makeText(CreateGroup.this,date_and_time.toString(),Toast.LENGTH_LONG).show();
 
                         UploadImage(groupId,group);
                     }
@@ -240,7 +281,7 @@ public class CreateGroup extends AppCompatActivity {
 
         if(requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK && data != null && data.getData() != null){
             mImageUri = data.getData();
-            Picasso.with(this).load(mImageUri).into(groupPic);
+            Picasso.with(this).load(mImageUri).fit().into(groupPic);
         }
     }
 
