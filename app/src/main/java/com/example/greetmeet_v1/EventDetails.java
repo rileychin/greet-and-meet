@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.ActionBar;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.content.ContentResolver;
@@ -144,7 +145,6 @@ public class EventDetails extends AppCompatActivity {
         listofusers = (RecyclerView)findViewById(R.id.listofusers);
         listofusers.setVisibility(View.GONE);
         Listofusers = new ArrayList<>();
-
 
         eventName = (EditText)findViewById(R.id.eventName);
         eventDesc = (EditText)findViewById(R.id.eventDesc);

@@ -8,195 +8,6 @@
     tools:context=".EventDetails">
 
 
-    <ImageView
-        android:id="@+id/eventImg"
-        android:layout_width="match_parent"
-        android:layout_height="286dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:srcCompat="@tools:sample/backgrounds/scenic" />
-
-    <ImageView
-        android:id="@+id/newEventImg"
-        android:layout_width="match_parent"
-        android:layout_height="286dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:srcCompat="@tools:sample/backgrounds/scenic" />
-
-    <EditText
-        android:id="@+id/eventName"
-        android:layout_width="411dp"
-        android:layout_height="49dp"
-        android:layout_marginTop="8dp"
-        android:background="#C6DCEF"
-        android:text="EVENT"
-        android:textStyle="bold"
-        android:scrollbars="horizontal"
-        android:textSize="30sp"
-        android:textColor="#2D608D"
-        app:flow_horizontalAlign="start"
-        app:flow_verticalAlign="center"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintVertical_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/eventImg" />
-
-    <EditText
-        android:id="@+id/eventHost"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="0dp"
-        android:layout_marginTop="12dp"
-        android:text="Hosted By"
-        android:textColor="#2D608D"
-        android:textSize="22sp"
-        android:textStyle="normal"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/eventName" />
-
-
-    <EditText
-        android:id="@+id/eventDesc"
-        android:layout_width="260dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="0dp"
-        android:layout_marginTop="8dp"
-        android:text="Details"
-        android:textSize="18sp"
-        android:textColor="#2D608D"
-        android:textStyle="normal"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/eventHost" />
-
-    <EditText
-        android:id="@+id/eventLocation"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="4dp"
-        android:text="Location"
-        android:textSize="18sp"
-        android:textColor="#2D608D"
-        android:textStyle="normal"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/eventDesc" />
-
-
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginRight="4dp"
-        android:layout_marginTop="20dp"
-        android:src="@drawable/ic_baseline_loc"
-        app:layout_constraintRight_toLeftOf="@+id/eventLocation"
-        app:layout_constraintTop_toBottomOf="@+id/eventDesc" />
-
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginRight="4dp"
-        android:layout_marginTop="20dp"
-        android:src="@drawable/ic_baseline_time"
-        app:layout_constraintRight_toLeftOf="@+id/eventDate"
-        app:layout_constraintTop_toBottomOf="@+id/eventLocation" />
-
-    <ProgressBar
-        android:id="@+id/progressBar"
-        style="?android:attr/progressBarStyle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="@+id/navigation"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.17000002" />
-
-    <Button
-        android:id="@+id/bookMark"
-        android:layout_width="58dp"
-        android:layout_height="41dp"
-        android:layout_marginTop="140dp"
-        android:layout_marginEnd="18dp"
-        android:text="+"
-        android:textColor="#FFFFFF"
-        android:background="@drawable/custom_button"
-        android:typeface="normal"
-        app:layout_constraintEnd_toEndOf="@+id/edit"
-        app:layout_constraintTop_toBottomOf="@+id/eventImg" />
-
-    <Button
-        android:id="@+id/attend"
-        android:layout_width="87dp"
-        android:layout_height="39dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="85dp"
-        android:text="Attend"
-        android:textColor="#FFFFFF"
-        android:background="@drawable/custom_button"
-        android:typeface="normal"
-        app:layout_constraintEnd_toEndOf="@+id/edit"
-        app:layout_constraintTop_toBottomOf="@+id/eventImg" />
-
-    <Button
-        android:id="@+id/edit"
-        android:layout_width="87dp"
-        android:layout_height="44dp"
-        android:layout_marginTop="18dp"
-        android:layout_marginEnd="16dp"
-        android:text="Edit"
-        android:textColor="#FFFFFF"
-        android:background="@drawable/custom_button"
-        android:typeface="normal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/bookMark" />
-
-    <Button
-        android:id="@+id/save"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="82dp"
-        android:layout_marginEnd="16dp"
-        android:text="save"
-        android:textColor="#FFFFFF"
-        android:background="@drawable/custom_button"
-        android:typeface="normal"
-        app:layout_constraintEnd_toEndOf="@+id/edit"
-        app:layout_constraintTop_toBottomOf="@+id/eventName" />
-
-    <Button
-        android:id="@+id/cancel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="28dp"
-        android:text="Cancel"
-        android:textColor="#FFFFFF"
-        android:background="@drawable/custom_button"
-        android:typeface="normal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/save"
-        app:layout_constraintTop_toBottomOf="@+id/save" />
-
-    <Button
-        android:id="@+id/delete"
-        android:layout_width="108dp"
-        android:layout_height="41dp"
-        android:layout_marginTop="92dp"
-        android:layout_marginEnd="16dp"
-        android:text="Delete Event"
-        android:textColor="#FFFFFF"
-        android:background="@drawable/custom_button"
-        android:typeface="normal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/eventImg" />
-
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/navigation"
         android:layout_width="match_parent"
@@ -211,76 +22,300 @@
         app:menu="@menu/nav_menu"
         tools:layout_editor_absoluteX="-16dp" />
 
-    <EditText
-        android:id="@+id/eventDate"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:ems="10"
-        android:text="Date"
-        android:textColor="#2D608D"
-        android:textSize="18sp"
-        android:textStyle="normal"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/eventLocation" />
 
-    <Button
-        android:id="@+id/SetDate"
-        android:layout_width="120dp"
-        android:layout_height="wrap_content"
-        android:text="Select Date"
-        android:textColor="#FFFFFF"
-        android:background="@drawable/custom_button"
-        android:typeface="normal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.25"
-        app:layout_constraintStart_toStartOf="parent"
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@id/navigation"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.793" />
+        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.0">
 
-    <Button
-        android:id="@+id/SetTime"
-        android:layout_width="120dp"
-        android:layout_height="wrap_content"
-        android:text="Select Time"
-        android:textColor="#FFFFFF"
-        android:background="@drawable/custom_button"
-        android:typeface="normal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.74"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.793" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/listofusers"
-        android:layout_width="192dp"
-        android:layout_height="80dp"
-        app:layout_constraintBottom_toTopOf="@+id/navigation"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.826"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/eventDate"
-        app:layout_constraintBottom_toBottomOf="@id/navigation"
-        app:layout_constraintVertical_bias="0.908" />
+            <ImageView
+                android:id="@+id/eventImg"
+                android:layout_width="match_parent"
+                android:layout_height="286dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:srcCompat="@tools:sample/backgrounds/scenic" />
 
-    <Button
-        android:id="@+id/textView3"
-        android:layout_width="135dp"
-        android:layout_height="43dp"
-        android:layout_marginTop="6dp"
-        android:text="Attendees"
-        android:textColor="#FFFFFF"
-        android:background="@drawable/custom_button"
-        android:typeface="normal"
-        app:layout_constraintBottom_toTopOf="@+id/navigation"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.05"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/eventDate"
-        app:layout_constraintVertical_bias="0.0" />
+            <ImageView
+                android:id="@+id/newEventImg"
+                android:layout_width="match_parent"
+                android:layout_height="286dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:srcCompat="@tools:sample/backgrounds/scenic" />
 
+
+            <EditText
+                android:id="@+id/eventName"
+                android:layout_width="411dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="0dp"
+                android:background="#C6DCEF"
+                android:text="EVENT"
+                android:textStyle="bold"
+                android:scrollbars="horizontal"
+                android:textSize="40sp"
+                android:textColor="#2D608D"
+                app:flow_horizontalAlign="start"
+                app:flow_verticalAlign="center"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintVertical_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/eventImg" />
+
+            <EditText
+                android:id="@+id/eventHost"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="12dp"
+                android:text="Hosted By"
+                android:textColor="#C12D608D"
+                android:textSize="22sp"
+                android:textStyle="normal"
+                android:background="@null"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/eventName" />
+
+            <TextView
+                android:id="@+id/eventSynopsis"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="58dp"
+                android:text="Synopsis:"
+                android:textSize="18sp"
+                android:textColor="#2D608D"
+                android:textStyle="normal"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/bookMark" />
+            <EditText
+                android:id="@+id/eventDesc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="0dp"
+                android:text="Details"
+                android:textSize="18sp"
+                android:textColor="#2D608D"
+                android:textStyle="normal"
+                android:background="@null"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/eventSynopsis" />
+
+            <EditText
+                android:id="@+id/eventLocation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="30dp"
+                android:text="Location"
+                android:textSize="19sp"
+                android:background="@null"
+                android:textColor="#2D608D"
+                android:textStyle="normal"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/eventHost" />
+
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:layout_marginRight="4dp"
+                android:src="@drawable/ic_baseline_loc"
+                app:layout_constraintRight_toLeftOf="@+id/eventLocation"
+                app:layout_constraintTop_toBottomOf="@+id/eventHost" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="4dp"
+                android:layout_marginTop="15dp"
+                android:src="@drawable/ic_baseline_time"
+                app:layout_constraintRight_toLeftOf="@+id/eventDate"
+                app:layout_constraintTop_toBottomOf="@+id/eventLocation" />
+
+            <ProgressBar
+                android:id="@+id/progressBar"
+                style="?android:attr/progressBarStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toTopOf="@+id/listofusers"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.17000002" />
+
+            <Button
+                android:id="@+id/bookMark"
+                android:layout_width="150dp"
+                android:layout_height="41dp"
+                android:layout_marginTop="25dp"
+                android:layout_marginEnd="220dp"
+                android:text="Bookmark"
+                android:textColor="#FFFFFF"
+                android:textSize="18dp"
+                android:background="@drawable/custom_button"
+                android:typeface="normal"
+                app:layout_constraintEnd_toEndOf="@+id/edit"
+                app:layout_constraintTop_toBottomOf="@+id/eventDate" />
+
+            <Button
+                android:id="@+id/attend"
+                android:layout_width="150dp"
+                android:layout_height="39dp"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="25dp"
+                android:text="Attend"
+                android:textSize="18dp"
+                android:textColor="#FFFFFF"
+                android:background="@drawable/custom_button"
+                android:typeface="normal"
+                app:layout_constraintTop_toBottomOf="@+id/eventDate"
+                app:layout_constraintStart_toEndOf="@+id/bookMark" />
+
+            <Button
+                android:id="@+id/edit"
+                android:layout_width="87dp"
+                android:layout_height="44dp"
+                android:layout_marginTop="18dp"
+                android:layout_marginEnd="16dp"
+                android:text="Edit"
+                android:textColor="#FFFFFF"
+                android:background="@drawable/custom_button"
+                android:typeface="normal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/eventName" />
+
+            <Button
+                android:id="@+id/save"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:layout_marginEnd="16dp"
+                android:text="save"
+                android:textColor="#FFFFFF"
+                android:background="@drawable/custom_button"
+                android:typeface="normal"
+                app:layout_constraintEnd_toEndOf="@+id/edit"
+                app:layout_constraintTop_toBottomOf="@+id/delete" />
+
+            <Button
+                android:id="@+id/cancel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:layout_marginEnd="28dp"
+                android:text="Cancel"
+                android:textColor="#FFFFFF"
+                android:background="@drawable/custom_button"
+                android:typeface="normal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/save"
+                app:layout_constraintTop_toBottomOf="@+id/save" />
+
+            <Button
+                android:id="@+id/delete"
+                android:layout_width="108dp"
+                android:layout_height="41dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginEnd="16dp"
+                android:text="Delete Event"
+                android:textColor="#FFFFFF"
+                android:background="@drawable/custom_button"
+                android:typeface="normal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/eventName" />
+
+
+            <EditText
+                android:id="@+id/eventDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="15dp"
+                android:ems="10"
+                android:text="Date"
+                android:textColor="#2D608D"
+                android:textSize="19sp"
+                android:background="@null"
+                android:textStyle="normal"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/eventLocation" />
+
+            <Button
+                android:id="@+id/SetDate"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:text="Select Date"
+                android:textColor="#FFFFFF"
+                android:background="@drawable/custom_button"
+                android:typeface="normal"
+                android:layout_marginTop="10dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.25"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/eventDesc"
+                app:layout_constraintVertical_bias="0.793" />
+
+            <Button
+                android:id="@+id/SetTime"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:text="Select Time"
+                android:textColor="#FFFFFF"
+                android:background="@drawable/custom_button"
+                android:typeface="normal"
+                android:layout_marginTop="10dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.74"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/eventDesc"
+                app:layout_constraintVertical_bias="0.793" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/listofusers"
+                android:layout_width="192dp"
+                android:layout_height="80dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.826"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/eventDesc"
+                app:layout_constraintVertical_bias="0.908" />
+
+            <Button
+                android:id="@+id/textView3"
+                android:layout_width="135dp"
+                android:layout_height="43dp"
+                android:layout_marginTop="20dp"
+                android:text="Attendees"
+                android:textColor="#FFFFFF"
+                android:background="@drawable/custom_button"
+                android:typeface="normal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.05"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/eventDesc"
+                app:layout_constraintVertical_bias="0.0" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+
+

@@ -8,14 +8,22 @@
     android:background="#FFFFFF"
     tools:context=".Register">
 
-    <com.scwang.wave.MultiWaveHeader
-        android:id="@+id/wave_header"
+    <TextView
+        android:id="@+id/RegistrationTitle"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:layout_alignParentBottom="true"
-        app:mwhStartColor="#1A2C78"
-        app:mwhCloseColor="#46B7C1"
-        tools:ignore="MissingConstraints"/>
+        android:layout_height="70dp"
+        android:text="Registration"
+        android:textSize="30sp"
+        android:fontFamily="sans-serif"
+        android:textColor="#FFFF"
+        android:gravity="center"
+        android:background="#2D608D"
+        app:layout_constraintBottom_toTopOf="@+id/refresh"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.142" />
 
     <EditText
         android:id="@+id/PersonName"
@@ -49,20 +57,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.503" />
 
-    <TextView
-        android:id="@+id/RegistrationTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Create Account"
-        android:textSize="23sp"
-        android:textStyle="bold"
-        android:textColor="#316B95"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.88"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.142" />
 
     <EditText
         android:id="@+id/SetEmail"
@@ -108,7 +102,7 @@
         app:layout_constraintHorizontal_bias="0.78"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.7" />
+        app:layout_constraintVertical_bias="0.8" />
 
     <Button
         android:id="@+id/Back"
@@ -123,5 +117,5 @@
         app:layout_constraintHorizontal_bias="0.22"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.7" />
+        app:layout_constraintVertical_bias="0.8" />
 </androidx.constraintlayout.widget.ConstraintLayout>
