@@ -24,48 +24,60 @@
             android:orientation="vertical"
             android:layout_gravity="bottom"
             android:layout_width="match_parent"
-            android:layout_height="70dp">
+            android:layout_height="100dp">
 
             <TextView
-            android:id="@+id/gName"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom"
-            android:background="#BCF4F0F0"
-            android:gravity="center"
-            android:text="Group Name"
-            android:textColor="#000000"
-            android:textSize="25sp"
-            android:textStyle="bold"
-            android:fontFamily="sans-serif"
-            android:autoSizeTextType="uniform"
-            android:autoSizeMinTextSize="20sp"
-            android:autoSizeMaxTextSize="100sp"
-            android:autoSizeStepGranularity="2sp"
-                />
-
-            <TextView
-            android:id="@+id/gLoc"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_gravity="bottom"
-            android:textColor="#000000"
-            android:textStyle="italic"
-            android:background="#BCF4F0F0"
-            android:gravity="center"
+                android:id="@+id/gName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:background="#BCF4F0F0"
+                android:gravity="center"
+                android:text="Group Name"
+                android:textColor="#000000"
+                android:textStyle="bold"
                 android:fontFamily="sans-serif"
+                android:autoSizeMaxTextSize="100sp"
+                android:autoSizeMinTextSize="15sp"
                 android:autoSizeTextType="uniform"
-                android:autoSizeMinTextSize="12sp"
-                android:autoSizeMaxTextSize="15sp"
-            android:autoSizeStepGranularity="1sp" />
+                android:autoSizeStepGranularity="2sp"
+                android:padding="3dp"/>
 
+            <TextView
+                android:id="@+id/gLoc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="top"
+                android:autoSizeStepGranularity="2sp"
+                android:autoSizeTextType="uniform"
+                android:background="#BCF4F0F0"
+                android:gravity="center"
+                android:text="Group Location"
+                android:textColor="#000000"
+                android:textStyle="italic"
+                android:padding="3dp"/>
+
+            <TextView
+                android:id="@+id/gDesc"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layout_constraintTop_toBottomOf="@id/gLoc"
+                android:autoSizeStepGranularity="2sp"
+                android:layout_gravity="bottom"
+                android:background="#BCF4F0F0"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:text="Group Description"
+                android:textColor="#000000"
+                android:textStyle="italic"
+                android:padding="3dp"/>
 
         </LinearLayout>
         <de.hdodenhof.circleimageview.CircleImageView
             android:layout_gravity="left|top"
             android:id="@+id/host_image"
-            android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
+            android:layout_height="45dp"
+            android:layout_width="45dp"
             android:layout_marginTop="10dp"
             android:layout_marginLeft="10dp"
             app:layout_constraintEnd_toEndOf="parent"

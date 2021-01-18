@@ -47,6 +47,7 @@ public class AdapterClass extends RecyclerView.Adapter<AdapterClass.MyViewHolder
         Group group = list.get(i);
         myViewHolder.gName.setText(group.getGroupName());
         myViewHolder.gLoc.setText(group.getGroupLoc());
+        myViewHolder.gDesc.setText(group.getGroupDesc());
         myViewHolder.gPic.setVisibility(View.INVISIBLE);
         Picasso.with(mcontext)
                 .load(group.getGroupImgURL())
@@ -113,7 +114,7 @@ public class AdapterClass extends RecyclerView.Adapter<AdapterClass.MyViewHolder
         return list.size();
     }
     public class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
-        TextView gName, gCategory, gLoc,gDate;
+        TextView gName, gCategory, gLoc,gDate,gDesc;
         ImageView gPic,host_image;
         LinearLayout parentLayout;
         //OnNoteListener onNoteListener;
@@ -122,7 +123,9 @@ public class AdapterClass extends RecyclerView.Adapter<AdapterClass.MyViewHolder
             gName = itemView.findViewById(R.id.gName);
             gPic = itemView.findViewById(R.id.gPic);
             gLoc = itemView.findViewById(R.id.gLoc);
+            gDesc = itemView.findViewById(R.id.gDesc);
             host_image = itemView.findViewById(R.id.host_image);
+
         }
         @Override
         public void onClick(View view){
