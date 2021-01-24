@@ -29,6 +29,7 @@ import java.util.ArrayList;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import android.view.Menu;
 import android.view.MenuItem;
+import androidx.appcompat.widget.Toolbar;
 
 
 
@@ -43,6 +44,7 @@ public class MainFeed extends AppCompatActivity{
     Button createGroup;
     FloatingActionButton addBtn;
     SwipeRefreshLayout refresh;
+    public Toolbar mToolbar;
 
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
@@ -130,7 +132,16 @@ public class MainFeed extends AppCompatActivity{
             }
         });
 
+        mToolbar = findViewById(R.id.toptoolbar);
+        setSupportActionBar(mToolbar);
 
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        super.onCreateOptionsMenu(menu);
+
+        return true;
     }
 
     protected void onStart(){
