@@ -132,8 +132,6 @@ public class MainFeed extends AppCompatActivity{
             }
         });
 
-        mToolbar = findViewById(R.id.toptoolbar);
-        setSupportActionBar(mToolbar);
 
     }
 
