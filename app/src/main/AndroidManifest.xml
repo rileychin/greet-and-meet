@@ -12,7 +12,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".SearchActivity"></activity>
+        <activity android:name=".MyEvents"></activity>
+        <activity android:name=".SearchActivity" />
         <activity
             android:name=".MyProfile"
             android:screenOrientation="portrait" />

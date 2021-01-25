@@ -767,7 +767,7 @@ public class EventDetails extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 int id = item.getItemId();
                 if (id == R.id.ic_account) {
-                    Intent intent3 = new Intent(EventDetails.this,MyProfile.class);
+                    Intent intent3 = new Intent(EventDetails.this,MyEvents.class);
                     startActivity(intent3);
                     //finish();
                 }

@@ -67,7 +67,7 @@ public class SearchActivity extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 int id = item.getItemId();
                 if (id == R.id.ic_account) {
-                startActivity(new Intent(SearchActivity.this, MyProfile.class));
+                startActivity(new Intent(SearchActivity.this, MyEvents.class));
                 finish();
                 }
 

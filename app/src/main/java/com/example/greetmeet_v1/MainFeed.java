@@ -41,7 +41,6 @@ public class MainFeed extends AppCompatActivity{
 //    SearchView searchView;
     AdapterClass adapterClass;
     AdapterClass.RecyclerViewClickListener listener;
-    Button createGroup;
     FloatingActionButton addBtn;
     SwipeRefreshLayout refresh;
     public Toolbar mToolbar;
@@ -113,7 +112,7 @@ public class MainFeed extends AppCompatActivity{
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 int id = item.getItemId();
                 if (id == R.id.ic_account) {
-                    Intent intent1 = new Intent(MainFeed.this, MyProfile.class);
+                    Intent intent1 = new Intent(MainFeed.this, MyEvents.class);
                     startActivity(intent1);
                     //finish();
                 }
@@ -186,22 +185,6 @@ public class MainFeed extends AppCompatActivity{
                 }
             });
         }
-
-//        if (searchView != null){
-//            searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener(){
-//                @Override
-//                public boolean onQueryTextSubmit(String query) {
-//                    return false;
-//                }
-//
-//                @Override
-//                public boolean onQueryTextChange(String s) {
-//                    search(s);
-//                    return false;
-//                }
-//
-//            });
-//        }
     }
 
 
