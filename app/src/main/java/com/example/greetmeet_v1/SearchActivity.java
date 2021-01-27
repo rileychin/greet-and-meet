@@ -11,6 +11,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
+import android.widget.ImageButton;
 import android.widget.SearchView;
 import android.widget.Toast;
 
@@ -30,6 +31,7 @@ public class SearchActivity extends AppCompatActivity {
     private DatabaseReference reff;
     private ArrayList<Group> list;
     SearchAdapter.RecyclerViewClickListener listener;
+    ImageButton profile;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,6 +57,15 @@ public class SearchActivity extends AppCompatActivity {
             public void onLongItemClick(View view, int position) {
             }
         }));
+
+        profile = (ImageButton)findViewById(R.id.accountButton);
+        profile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent start = new Intent(SearchActivity.this,MyProfile.class);
+                startActivity(start);
+            }
+        });
 
         BottomNavigationView bottomNavigationView = (BottomNavigationView) findViewById(R.id.navigation);
         BottomNavigationViewHelper.disableShiftMode(bottomNavigationView);

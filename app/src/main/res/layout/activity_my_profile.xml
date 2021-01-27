@@ -11,8 +11,8 @@
         android:layout_width="match_parent"
         android:layout_height="222dp"
         android:layout_alignParentBottom="true"
-        app:mwhStartColor="#1A2C78"
-        app:mwhCloseColor="#46B7C1"
+        app:mwhStartColor="#559CFD"
+        app:mwhCloseColor="#B3D3FF"
         tools:ignore="MissingConstraints"/>
 
 
@@ -44,7 +44,7 @@
         android:layout_width="419dp"
         android:layout_height="28dp"
         android:layout_marginTop="8dp"
-        android:background="#316B95"
+        android:background="#FBC8A4"
         android:text="MY GROUPS"
         android:textColor="#FFFFFF"
         android:textStyle="bold"
@@ -130,7 +130,7 @@
         android:layout_width="match_parent"
         android:layout_height="70dp"
         android:layout_marginTop="669dp"
-        android:background="#2D608D"
+        android:background="#B3D3FF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0"

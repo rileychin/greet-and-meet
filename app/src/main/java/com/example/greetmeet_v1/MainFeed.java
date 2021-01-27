@@ -14,6 +14,7 @@ import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.SearchView;
 import android.widget.Toast;
 
@@ -44,6 +45,7 @@ public class MainFeed extends AppCompatActivity{
     FloatingActionButton addBtn;
     SwipeRefreshLayout refresh;
     public Toolbar mToolbar;
+    ImageButton profile;
 
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
@@ -98,6 +100,15 @@ public class MainFeed extends AppCompatActivity{
                 Intent start = new Intent(MainFeed.this,CreateGroup.class);
                 startActivity(start);
                 //finish();
+            }
+        });
+
+        profile = (ImageButton)findViewById(R.id.accountButton);
+        profile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent start = new Intent(MainFeed.this,MyProfile.class);
+                startActivity(start);
             }
         });
 

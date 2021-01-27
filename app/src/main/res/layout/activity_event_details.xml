@@ -5,15 +5,33 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:flow_horizontalAlign="start"
+    android:background="#B3D3FF"
     tools:context=".EventDetails">
 
+
+    <TextView
+        android:id="@+id/MainFeedTitle"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:text="@string/greet_meet"
+        android:textSize="35sp"
+        android:fontFamily="cursive"
+        android:textColor="#FFFF"
+        android:gravity="center"
+        android:background="#B3D3FF"
+        app:layout_constraintBottom_toTopOf="@+id/refresh"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.142" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/navigation"
         android:layout_width="match_parent"
         android:layout_height="70dp"
         android:layout_marginTop="669dp"
-        android:background="#2D608D"
+        android:background="#B3D3FF"
         app:itemIconTint="#fff"
         app:itemTextColor="#fff"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -22,40 +40,74 @@
         app:menu="@menu/nav_menu"
         tools:layout_editor_absoluteX="-16dp" />
 
+    <ImageView
+        android:id="@+id/eventImg"
+        android:layout_width="match_parent"
+        android:layout_height="280dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/MainFeedTitle"
+        tools:srcCompat="@tools:sample/backgrounds/scenic" />
+
+    <ImageView
+        android:id="@+id/newEventImg"
+        android:layout_width="match_parent"
+        android:layout_height="280dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/MainFeedTitle"
+        tools:srcCompat="@tools:sample/backgrounds/scenic" />
+
+    <ImageButton
+        android:id="@+id/accountButton"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:paddingBottom="10dp"
+        android:paddingTop="10dp"
+        android:background="#B3D3FF"
+        app:srcCompat="@drawable/ic_baseline_account"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="11dp"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginRight="20dp"
+        tools:layout_editor_absoluteX="9dp"
+        tools:layout_editor_absoluteY="9dp"
+        tools:ignore="VectorDrawableCompat" />
+
+    <ImageButton
+        android:id="@+id/settings"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:paddingBottom="10dp"
+        android:paddingTop="10dp"
+        android:background="#B3D3FF"
+        app:srcCompat="@drawable/ic_baseline_settings_24"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="11dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginLeft="20dp"
+        tools:layout_editor_absoluteX="9dp"
+        tools:layout_editor_absoluteY="9dp"
+        tools:ignore="VectorDrawableCompat" />
+
 
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:layout_marginTop="5dp"
         app:layout_constraintBottom_toTopOf="@id/navigation"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/eventImg"
         app:layout_constraintVertical_bias="0.0"
-        app:layout_constraintHorizontal_bias="0.0">
+        app:layout_constraintHorizontal_bias="0.0"
+        android:background="@drawable/rounded_edittext">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
-
-            <ImageView
-                android:id="@+id/eventImg"
-                android:layout_width="match_parent"
-                android:layout_height="286dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:srcCompat="@tools:sample/backgrounds/scenic" />
-
-            <ImageView
-                android:id="@+id/newEventImg"
-                android:layout_width="match_parent"
-                android:layout_height="286dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:srcCompat="@tools:sample/backgrounds/scenic" />
 
 
             <EditText
@@ -63,19 +115,18 @@
                 android:layout_width="411dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="0dp"
-                android:background="#C6DCEF"
                 android:text="EVENT"
                 android:textStyle="bold"
                 android:scrollbars="horizontal"
-                android:textSize="40sp"
-                android:textColor="#2D608D"
+                android:textSize="30sp"
+                android:textColor="#67A7FF"
                 app:flow_horizontalAlign="start"
                 app:flow_verticalAlign="center"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintVertical_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/eventImg" />
+                tools:ignore="MissingConstraints" />
 
             <EditText
                 android:id="@+id/eventHost"
@@ -84,7 +135,7 @@
                 android:layout_marginStart="0dp"
                 android:layout_marginTop="12dp"
                 android:text="Hosted By"
-                android:textColor="#C12D608D"
+                android:textColor="#67A7FF"
                 android:textSize="22sp"
                 android:textStyle="normal"
                 android:background="@null"
@@ -99,7 +150,7 @@
                 android:layout_marginTop="58dp"
                 android:text="Synopsis:"
                 android:textSize="18sp"
-                android:textColor="#2D608D"
+                android:textColor="#67A7FF"
                 android:textStyle="normal"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/bookMark" />
@@ -111,7 +162,7 @@
                 android:layout_marginTop="0dp"
                 android:text="Details"
                 android:textSize="18sp"
-                android:textColor="#2D608D"
+                android:textColor="#67A7FF"
                 android:textStyle="normal"
                 android:background="@null"
                 app:layout_constraintStart_toStartOf="parent"
@@ -126,7 +177,7 @@
                 android:text="Location"
                 android:textSize="19sp"
                 android:background="@null"
-                android:textColor="#2D608D"
+                android:textColor="#67A7FF"
                 android:textStyle="normal"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/eventHost" />
@@ -252,7 +303,7 @@
                 android:layout_marginTop="15dp"
                 android:ems="10"
                 android:text="Date"
-                android:textColor="#2D608D"
+                android:textColor="#67A7FF"
                 android:textSize="19sp"
                 android:background="@null"
                 android:textStyle="normal"
@@ -292,7 +343,8 @@
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/listofusers"
                 android:layout_width="192dp"
-                android:layout_height="80dp"
+                android:layout_height="180dp"
+                android:layout_marginTop="20dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.826"
                 app:layout_constraintStart_toStartOf="parent"

@@ -6,7 +6,10 @@
     android:layout_width="match_parent"
     android:layout_height="200dp"
     android:scrollbars="vertical"
-    android:id="@+id/cardId">
+    android:id="@+id/cardId"
+    app:cardCornerRadius="20dp"
+    app:cardUseCompatPadding="true"
+    app:cardElevation="4dp">
 
     <FrameLayout
         android:layout_width="match_parent"

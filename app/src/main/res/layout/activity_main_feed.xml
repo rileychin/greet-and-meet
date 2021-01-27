@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFFFF"
+    android:background="#B3D3FF"
     tools:context=".MainFeed">
 
     <TextView
@@ -16,7 +16,7 @@
         android:fontFamily="cursive"
         android:textColor="#FFFF"
         android:gravity="center"
-        android:background="#2D608D"
+        android:background="#B3D3FF"
         app:layout_constraintBottom_toTopOf="@+id/refresh"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -54,7 +54,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="0dp"
-        android:background="#2D608D"
+        android:background="#B3D3FF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0"
@@ -68,16 +68,47 @@
         android:layout_height="wrap_content"
         android:clickable="true"
         android:scaleType="center"
-        app:backgroundTint="#29B3BF"
+        android:layout_marginBottom="10dp"
+        app:backgroundTint="#FBC8A4"
         app:srcCompat="@drawable/ic_baseline_add_final"
         app:fabSize="normal"
         app:fabCustomSize="70dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/navigation"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.973"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.9"
         tools:ignore="MissingConstraints,VectorDrawableCompat" />
+
+    <ImageButton
+        android:id="@+id/accountButton"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:paddingBottom="10dp"
+        android:paddingTop="10dp"
+        android:background="#B3D3FF"
+        app:srcCompat="@drawable/ic_baseline_account"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="11dp"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginRight="20dp"
+        tools:layout_editor_absoluteX="9dp"
+        tools:layout_editor_absoluteY="9dp"
+        tools:ignore="VectorDrawableCompat" />
+
+    <ImageButton
+        android:id="@+id/settings"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:paddingBottom="10dp"
+        android:paddingTop="10dp"
+        android:background="#B3D3FF"
+        app:srcCompat="@drawable/ic_baseline_settings_24"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="11dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginLeft="20dp"
+        tools:layout_editor_absoluteX="9dp"
+        tools:layout_editor_absoluteY="9dp"
+        tools:ignore="VectorDrawableCompat" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -7,7 +7,7 @@
     tools:context=".MyEvents">
 
     <TextView
-        android:id="@+id/MyEventsTitle"
+        android:id="@+id/MainFeedTitle"
         android:layout_width="match_parent"
         android:layout_height="70dp"
         android:text="@string/greet_meet"
@@ -15,13 +15,45 @@
         android:fontFamily="cursive"
         android:textColor="#FFFF"
         android:gravity="center"
-        android:background="#2D608D"
+        android:background="#B3D3FF"
         app:layout_constraintBottom_toTopOf="@+id/refresh"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.142" />
+
+    <ImageButton
+        android:id="@+id/accountButton"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:paddingBottom="10dp"
+        android:paddingTop="10dp"
+        android:background="#B3D3FF"
+        app:srcCompat="@drawable/ic_baseline_account"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="11dp"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginRight="20dp"
+        tools:layout_editor_absoluteX="9dp"
+        tools:layout_editor_absoluteY="9dp"
+        tools:ignore="VectorDrawableCompat" />
+
+    <ImageButton
+        android:id="@+id/settings"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:paddingBottom="10dp"
+        android:paddingTop="10dp"
+        android:background="#B3D3FF"
+        app:srcCompat="@drawable/ic_baseline_settings_24"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="11dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginLeft="20dp"
+        tools:layout_editor_absoluteX="9dp"
+        tools:layout_editor_absoluteY="9dp"
+        tools:ignore="VectorDrawableCompat" />
 
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/MyEventsViewPager"
@@ -37,7 +69,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintTop_toBottomOf="@id/MyEventsTitle">
+        app:layout_constraintTop_toBottomOf="@id/MainFeedTitle">
 
     </com.google.android.material.tabs.TabLayout>
 
@@ -48,7 +80,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="0dp"
-        android:background="#2D608D"
+        android:background="#B3D3FF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0"

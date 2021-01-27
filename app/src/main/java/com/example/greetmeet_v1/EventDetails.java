@@ -32,6 +32,7 @@ import android.webkit.MimeTypeMap;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 
@@ -83,6 +84,7 @@ public class EventDetails extends AppCompatActivity {
     private final int PICK_IMAGE_REQUEST = 1;
     boolean test1 = false, test2 = false;
     String customname;
+    ImageButton profile;
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
@@ -178,7 +180,14 @@ public class EventDetails extends AppCompatActivity {
         bookmark = (Button)findViewById(R.id.bookMark);
         attend = (Button)findViewById(R.id.attend);
 
-
+        profile = (ImageButton)findViewById(R.id.accountButton);
+        profile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent start = new Intent(EventDetails.this,MyProfile.class);
+                startActivity(start);
+            }
+        });
 
         LinearLayoutManager layoutManager1 = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
         listofusers.setLayoutManager(layoutManager1);
