@@ -122,7 +122,7 @@ public class MainFeed extends AppCompatActivity{
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 int id = item.getItemId();
-                if (id == R.id.ic_account) {
+                if (id == R.id.ic_events) {
                     Intent intent1 = new Intent(MainFeed.this, MyEvents.class);
                     startActivity(intent1);
                     //finish();

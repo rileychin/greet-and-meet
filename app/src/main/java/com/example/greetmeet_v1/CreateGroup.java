@@ -203,7 +203,7 @@ public class CreateGroup extends AppCompatActivity {
             public void onClick(View view){
 
                 if (groupName.getText().toString().trim().isEmpty() || groupDesc.getText().toString().trim().isEmpty() || groupLoc.getText().toString().trim().isEmpty()){
-                    Toast.makeText(CreateGroup.this,"Missing Data Fields!",Toast.LENGTH_LONG).show();
+                    Toast.makeText(CreateGroup.this,"Missing Fields!",Toast.LENGTH_LONG).show();
                 }
                 else{
                     final String groupId  = databaseReference.push().getKey();
@@ -247,7 +247,7 @@ public class CreateGroup extends AppCompatActivity {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 int id = item.getItemId();
-                if (id == R.id.ic_account) {
+                if (id == R.id.ic_events) {
                     Intent intent3 = new Intent(CreateGroup.this, MyEvents.class);
                     startActivity(intent3);
                     //finish();

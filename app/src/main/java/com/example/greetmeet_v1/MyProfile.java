@@ -394,11 +394,11 @@ public class MyProfile extends AppCompatActivity {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 int id = item.getItemId();
-                //if (id == R.id.ic_account) {
-                //Intent intent1 = new Intent(MyProfile.this, MyProfile.class);
-                //startActivity(intent1);
-                //finish();
-                //}
+                if (id == R.id.ic_events) {
+                    Intent intent1 = new Intent(MyProfile.this, MyEvents.class);
+                    startActivity(intent1);
+                    finish();
+                }
 
                 if (id == R.id.ic_home) {
                     Intent intent3 = new Intent(MyProfile.this, MainFeed.class);

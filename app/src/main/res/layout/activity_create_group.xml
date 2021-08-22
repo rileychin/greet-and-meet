@@ -50,9 +50,14 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                android:src="@drawable/ic_action_name"/>
+                android:src="@drawable/weebly_image_sample"/>
 
             <com.google.android.material.textfield.TextInputLayout
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:id="@+id/outlined_text_input_layout"
+                style= "@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:hintAnimationEnabled="false"
@@ -68,6 +73,10 @@
 
 
             <com.google.android.material.textfield.TextInputLayout
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                style= "@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:hintAnimationEnabled="false"
@@ -77,6 +86,8 @@
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/gDesc"
+                    android:gravity="top|start"
+                    android:minHeight="200dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Description"
@@ -85,6 +96,10 @@
 
 
             <com.google.android.material.textfield.TextInputLayout
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                style= "@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:hintAnimationEnabled="false"
@@ -98,7 +113,10 @@
                     android:hint="Location" />
             </com.google.android.material.textfield.TextInputLayout>
 
+
             <TextView
+                android:layout_marginStart="10dp"
+                android:layout_margin="25dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Category"
@@ -108,6 +126,7 @@
 
             <Spinner
                 android:id="@+id/categorySpinner"
+                android:layout_margin="20dp"
                 android:layout_width="match_parent"
                 android:layout_height="20dp"
                 android:layout_marginTop="10dp"
@@ -117,6 +136,10 @@
                 app:layout_constraintStart_toStartOf="parent" />
 
             <com.google.android.material.textfield.TextInputLayout
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                style= "@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:hintAnimationEnabled="false"
@@ -126,6 +149,7 @@
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/DateTimeSelector"
+                    android:background="@drawable/box"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Date and Time"

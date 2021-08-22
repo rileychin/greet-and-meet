@@ -103,7 +103,7 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.SearchView
     };
 
     public class SearchViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
-        TextView gName;
+        TextView gName, gCategory, gLoc,gDate,gDesc;
         ImageView gPic;
 
         public SearchViewHolder(@NonNull View itemView) {

@@ -26,11 +26,11 @@ import java.util.ArrayList;
 
 public class SearchActivity extends AppCompatActivity {
 
-    private SearchAdapter adapter;
+    private AdapterClass adapter;
     private RecyclerView recyclerView;
     private DatabaseReference reff;
     private ArrayList<Group> list;
-    SearchAdapter.RecyclerViewClickListener listener;
+    AdapterClass.RecyclerViewClickListener listener;
     ImageButton profile;
 
     @Override
@@ -77,7 +77,7 @@ public class SearchActivity extends AppCompatActivity {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 int id = item.getItemId();
-                if (id == R.id.ic_account) {
+                if (id == R.id.ic_events) {
                 startActivity(new Intent(SearchActivity.this, MyEvents.class));
                 finish();
                 }
@@ -123,7 +123,7 @@ public class SearchActivity extends AppCompatActivity {
                                 list.add(0, ds.getValue(Group.class));
                             }
                         }
-                        adapter = new SearchAdapter(list, listener);
+                        adapter = new AdapterClass(list, listener);
                         recyclerView.setAdapter(adapter);
                     }
 

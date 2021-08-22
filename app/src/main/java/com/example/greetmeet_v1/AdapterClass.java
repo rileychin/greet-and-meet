@@ -1,9 +1,11 @@
 package com.example.greetmeet_v1;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Filter;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -30,7 +32,11 @@ public class AdapterClass extends RecyclerView.Adapter<AdapterClass.MyViewHolder
     RecyclerViewClickListener listener;
     ArrayList<Group> list;
     Context mcontext;
+    private ArrayList<Group> mData;
+    private ArrayList<Group> mDataFull;
     public AdapterClass(ArrayList<Group> list,RecyclerViewClickListener listener){
+        this.mData = list;
+        mDataFull = new ArrayList<Group>(mData);
         this.list = list;
         this.listener = listener;
         //mcontext = context();
@@ -132,6 +138,38 @@ public class AdapterClass extends RecyclerView.Adapter<AdapterClass.MyViewHolder
             listener.onClick(view, getAdapterPosition());
         }
     }
+
+    public Filter getFilter() {
+        return searchFilter;
+    }
+
+    private Filter searchFilter = new Filter() {
+        @Override
+        protected FilterResults performFiltering(CharSequence charSequence) {
+            ArrayList<Group> filteredList = new ArrayList<Group>();
+            if (charSequence == null || charSequence.length() == 0){
+                filteredList.addAll(mDataFull);
+                Log.d("SearchAdapter", "No Search, Display Full List");
+            } else {
+                String filterPattern = charSequence.toString().toLowerCase().trim();
+                for (Group item : mDataFull){
+                    if (item.getGroupName().toLowerCase().contains(filterPattern)) {
+                        filteredList.add(item);
+                    }
+                }
+            }
+            FilterResults results = new FilterResults();
+            results.values = filteredList;
+            return results;
+        }
+
+        @Override
+        protected void publishResults(CharSequence charSequence, FilterResults filterResults) {
+            mData.clear();
+            mData.addAll((ArrayList)filterResults.values);
+            notifyDataSetChanged();
+        }
+    };
 
     public interface RecyclerViewClickListener{
         void onClick(View v, int pos);

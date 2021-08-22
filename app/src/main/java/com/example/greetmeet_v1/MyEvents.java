@@ -14,6 +14,8 @@ import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -29,8 +31,7 @@ public class MyEvents extends AppCompatActivity {
 
     ViewPager viewPager;
     TabLayout tabLayout;
-
-
+    ImageButton profile;
 
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
@@ -53,16 +54,19 @@ public class MyEvents extends AppCompatActivity {
         MenuItem menuItem = menu.getItem(0);
         menuItem.setChecked(true);
 
+        profile = (ImageButton)findViewById(R.id.accountButton);
+        profile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent start = new Intent(MyEvents.this,MyProfile.class);
+                startActivity(start);
+            }
+        });
+
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 int id = item.getItemId();
-                if (id == R.id.ic_account) {
-//                    Intent intent1 = new Intent(MyEvents.this, MyEvents.class);
-//                    startActivity(intent1);
-//                    //finish();
-                }
-
                 if (id == R.id.ic_home) {
                     Intent intent3 = new Intent(MyEvents.this, MainFeed.class);
                     startActivity(intent3);
