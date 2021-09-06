@@ -78,7 +78,8 @@ public class EventDetails extends AppCompatActivity {
     DatabaseReference ref,ref2;
     ArrayList<Group> list;
     ArrayList<String> Listofusers;
-    Button edit,attend,bookmark,save,cancel,delete,SetDate, SetTime,textView3;
+    Button edit,attend,bookmark,save,cancel,delete,SetDate, SetTime;
+    TextView noOfAttendees;
     int Date1,Hour1,Minute1,Month1,Year1;
     int Date2,Hour2,Minute2,Month2,Year2;
     private final int PICK_IMAGE_REQUEST = 1;
@@ -128,6 +129,13 @@ public class EventDetails extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        try
+        {
+            this.getSupportActionBar().hide();
+        }
+        catch (NullPointerException e){}
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_event_details);
 
@@ -143,7 +151,6 @@ public class EventDetails extends AppCompatActivity {
         final DatabaseReference attending = FirebaseDatabase.getInstance().getReference("User").child(fuser.getUid()).child("attending");
         final DatabaseReference bookmarked = FirebaseDatabase.getInstance().getReference("User").child(fuser.getUid()).child("bookmarked");
         //Toast.makeText(EventDetails.this, id, Toast.LENGTH_SHORT).show();
-        textView3 = (Button) findViewById(R.id.textView3);
         listofusers = (RecyclerView)findViewById(R.id.listofusers);
         listofusers.setVisibility(View.GONE);
         Listofusers = new ArrayList<>();
@@ -152,6 +159,8 @@ public class EventDetails extends AppCompatActivity {
         eventDesc = (EditText)findViewById(R.id.eventDesc);
         eventHost = (EditText)findViewById(R.id.eventHost);
         eventLocation = (EditText)findViewById(R.id.eventLocation);
+
+        noOfAttendees = (TextView)findViewById(R.id.noOfAttendees);
 
         eventImage = (ImageView)findViewById(R.id.eventImg);
         eventImage.setVisibility(View.INVISIBLE);
@@ -192,34 +201,6 @@ public class EventDetails extends AppCompatActivity {
         LinearLayoutManager layoutManager1 = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
         listofusers.setLayoutManager(layoutManager1);
 
-        textView3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                CustomAdapter adapter = new CustomAdapter(Listofusers);
-                listofusers.setAdapter(adapter);
-                listofusers.setVisibility(View.VISIBLE);
-                Toast.makeText(EventDetails.this, "All attendees are on display now", Toast.LENGTH_SHORT).show();
-                ref2.addValueEventListener(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        Listofusers.clear();
-                        for (DataSnapshot dss : snapshot.getChildren()){
-                            String names = dss.getValue(String.class);
-                            Listofusers.add(names);
-                        }
-                        adapter.notifyDataSetChanged();
-
-                    }
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError error) {
-
-                    }
-                });
-            }
-
-        });
-
-
 
         ref.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -252,6 +233,8 @@ public class EventDetails extends AppCompatActivity {
                 String name = snapshot.child("groupName").getValue().toString();
                 eventName.setText(name);
 
+
+
                 //set event desc
                 String desc = snapshot.child("groupDesc").getValue().toString();
                 eventDesc.setText(desc);
@@ -259,6 +242,15 @@ public class EventDetails extends AppCompatActivity {
                 //set event location
                 String location = snapshot.child("groupLoc").getValue().toString();
                 eventLocation.setText(location);
+
+                if (snapshot.child("attendees").exists()){
+                    long attendees_number_long = snapshot.child("attendees").getChildrenCount();
+                    int attendees_number = (int) attendees_number_long;
+                    noOfAttendees.setText(Integer.toString(attendees_number) + " attendees to this event");
+                }else{
+                    noOfAttendees.setText("0 attendees to this event");
+                }
+
 
                 //set event host name
                 String hostid = snapshot.child("host").child("name").getValue().toString();
@@ -304,7 +296,6 @@ public class EventDetails extends AppCompatActivity {
         eventLocation.setEnabled(false);
         eventHost.setEnabled(false);
         eventDate.setEnabled(false);
-        //eventHost.setText(host)
 
         eventImage.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -348,7 +339,6 @@ public class EventDetails extends AppCompatActivity {
                 SetDate.setVisibility(View.VISIBLE);
                 SetTime.setVisibility(View.VISIBLE);
                 listofusers.setVisibility(View.GONE);
-                textView3.setVisibility(View.GONE);
 
                         SetDate.setOnClickListener(new View.OnClickListener() {
                             @RequiresApi(api = Build.VERSION_CODES.N)
@@ -401,10 +391,6 @@ public class EventDetails extends AppCompatActivity {
                                 timePickerDialog.show();
                             }
                         });
-
-
-
-
 
                 save.setOnClickListener(new View.OnClickListener(){
                     @Override
@@ -467,7 +453,6 @@ public class EventDetails extends AppCompatActivity {
                                                         attend.setVisibility(View.VISIBLE);
                                                         edit.setVisibility(View.VISIBLE);
                                                         eventDate.setVisibility(View.VISIBLE);
-                                                        textView3.setVisibility(View.VISIBLE);
                                                         listofusers.setVisibility(View.GONE);
                                                         save.setVisibility(View.GONE);
                                                         delete.setVisibility(View.GONE);
@@ -519,7 +504,6 @@ public class EventDetails extends AppCompatActivity {
                                         attend.setVisibility(View.VISIBLE);
                                         edit.setVisibility(View.VISIBLE);
                                         eventDate.setVisibility(View.VISIBLE);
-                                        textView3.setVisibility(View.VISIBLE);
                                         listofusers.setVisibility(View.VISIBLE);
                                         save.setVisibility(View.GONE);
                                         delete.setVisibility(View.GONE);
@@ -694,7 +678,6 @@ public class EventDetails extends AppCompatActivity {
                 attend.setVisibility(View.VISIBLE);
                 edit.setVisibility(View.VISIBLE);
                 eventDate.setVisibility(View.VISIBLE);
-                textView3.setVisibility(View.VISIBLE);
                 listofusers.setVisibility(View.GONE);
                 save.setVisibility(View.GONE);
                 delete.setVisibility(View.GONE);

@@ -5,7 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:flow_horizontalAlign="start"
-    android:background="#B3D3FF"
     tools:context=".EventDetails">
 
 
@@ -54,6 +53,7 @@
         android:id="@+id/newEventImg"
         android:layout_width="match_parent"
         android:layout_height="280dp"
+        android:layout_marginTop="68dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -92,15 +92,14 @@
         tools:ignore="VectorDrawableCompat" />
 
 
-
     <ScrollView
+        android:id="@+id/scrollView2"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginTop="5dp"
         app:layout_constraintBottom_toTopOf="@id/navigation"
         app:layout_constraintTop_toBottomOf="@id/eventImg"
-        app:layout_constraintVertical_bias="0.0"
-        app:layout_constraintHorizontal_bias="0.0">
+        app:layout_constraintVertical_bias="0.0">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -113,17 +112,17 @@
                 android:layout_width="411dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="0dp"
-                android:text="EVENT"
-                android:textStyle="bold"
                 android:scrollbars="horizontal"
-                android:textSize="30sp"
+                android:text="EVENT"
                 android:textColor="#67A7FF"
+                android:textSize="30sp"
+                android:textStyle="bold"
                 app:flow_horizontalAlign="start"
                 app:flow_verticalAlign="center"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintVertical_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintVertical_bias="0.0"
                 tools:ignore="MissingConstraints" />
 
             <EditText
@@ -132,11 +131,11 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="0dp"
                 android:layout_marginTop="12dp"
+                android:background="@null"
                 android:text="Hosted By"
                 android:textColor="#67A7FF"
                 android:textSize="22sp"
                 android:textStyle="normal"
-                android:background="@null"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/eventName" />
 
@@ -147,22 +146,23 @@
                 android:layout_marginStart="0dp"
                 android:layout_marginTop="58dp"
                 android:text="Synopsis:"
-                android:textSize="18sp"
                 android:textColor="#67A7FF"
+                android:textSize="18sp"
                 android:textStyle="normal"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/bookMark" />
+
             <EditText
                 android:id="@+id/eventDesc"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="0dp"
                 android:layout_marginTop="0dp"
-                android:text="Details"
-                android:textSize="18sp"
-                android:textColor="#67A7FF"
-                android:textStyle="normal"
                 android:background="@null"
+                android:text="Details"
+                android:textColor="#67A7FF"
+                android:textSize="18sp"
+                android:textStyle="normal"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/eventSynopsis" />
 
@@ -170,45 +170,48 @@
                 android:id="@+id/eventLocation"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="30dp"
-                android:layout_marginTop="30dp"
-                android:text="Location"
-                android:textSize="19sp"
+                android:layout_marginStart="28dp"
+                android:layout_marginTop="44dp"
                 android:background="@null"
+                android:text="Location"
                 android:textColor="#67A7FF"
+                android:textSize="19sp"
                 android:textStyle="normal"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/eventHost" />
 
+            <EditText
+                android:id="@+id/eventDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="28dp"
+                android:layout_marginTop="16dp"
+                android:background="@null"
+                android:ems="10"
+                android:text="Date"
+                android:textColor="#67A7FF"
+                android:textSize="19sp"
+                android:textStyle="normal"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/eventLocation" />
 
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="32dp"
+                android:layout_marginTop="16dp"
                 android:layout_marginRight="4dp"
-                android:src="@drawable/ic_baseline_loc"
-                app:layout_constraintRight_toLeftOf="@+id/eventLocation"
-                app:layout_constraintTop_toBottomOf="@+id/eventHost" />
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginRight="4dp"
-                android:layout_marginTop="15dp"
                 android:src="@drawable/ic_baseline_time"
                 app:layout_constraintRight_toLeftOf="@+id/eventDate"
                 app:layout_constraintTop_toBottomOf="@+id/eventLocation" />
 
-            <ProgressBar
-                android:id="@+id/progressBar"
-                style="?android:attr/progressBarStyle"
+            <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:layout_constraintBottom_toTopOf="@+id/listofusers"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.17000002" />
+                android:layout_marginTop="44dp"
+                android:layout_marginRight="4dp"
+                android:src="@drawable/ic_baseline_loc"
+                app:layout_constraintRight_toLeftOf="@+id/eventLocation"
+                app:layout_constraintTop_toBottomOf="@+id/eventHost" />
 
             <Button
                 android:id="@+id/bookMark"
@@ -216,10 +219,10 @@
                 android:layout_height="41dp"
                 android:layout_marginTop="25dp"
                 android:layout_marginEnd="220dp"
+                android:background="@drawable/custom_button"
                 android:text="Bookmark"
                 android:textColor="#FFFFFF"
                 android:textSize="18dp"
-                android:background="@drawable/custom_button"
                 android:typeface="normal"
                 app:layout_constraintEnd_toEndOf="@+id/edit"
                 app:layout_constraintTop_toBottomOf="@+id/eventDate" />
@@ -230,13 +233,13 @@
                 android:layout_height="39dp"
                 android:layout_marginStart="50dp"
                 android:layout_marginTop="25dp"
-                android:text="Attend"
-                android:textSize="18dp"
-                android:textColor="#FFFFFF"
                 android:background="@drawable/custom_button"
+                android:text="Attend"
+                android:textColor="#FFFFFF"
+                android:textSize="18dp"
                 android:typeface="normal"
-                app:layout_constraintTop_toBottomOf="@+id/eventDate"
-                app:layout_constraintStart_toEndOf="@+id/bookMark" />
+                app:layout_constraintStart_toEndOf="@+id/bookMark"
+                app:layout_constraintTop_toBottomOf="@+id/eventDate" />
 
             <Button
                 android:id="@+id/edit"
@@ -244,9 +247,9 @@
                 android:layout_height="44dp"
                 android:layout_marginTop="18dp"
                 android:layout_marginEnd="16dp"
+                android:background="@drawable/custom_button"
                 android:text="Edit"
                 android:textColor="#FFFFFF"
-                android:background="@drawable/custom_button"
                 android:typeface="normal"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/eventName" />
@@ -257,9 +260,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
                 android:layout_marginEnd="16dp"
+                android:background="@drawable/custom_button"
                 android:text="save"
                 android:textColor="#FFFFFF"
-                android:background="@drawable/custom_button"
                 android:typeface="normal"
                 app:layout_constraintEnd_toEndOf="@+id/edit"
                 app:layout_constraintTop_toBottomOf="@+id/delete" />
@@ -270,9 +273,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
                 android:layout_marginEnd="28dp"
+                android:background="@drawable/custom_button"
                 android:text="Cancel"
                 android:textColor="#FFFFFF"
-                android:background="@drawable/custom_button"
                 android:typeface="normal"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
@@ -285,38 +288,23 @@
                 android:layout_height="41dp"
                 android:layout_marginTop="12dp"
                 android:layout_marginEnd="16dp"
+                android:background="@drawable/custom_button"
                 android:text="Delete Event"
                 android:textColor="#FFFFFF"
-                android:background="@drawable/custom_button"
                 android:typeface="normal"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/eventName" />
 
 
-            <EditText
-                android:id="@+id/eventDate"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="30dp"
-                android:layout_marginTop="15dp"
-                android:ems="10"
-                android:text="Date"
-                android:textColor="#67A7FF"
-                android:textSize="19sp"
-                android:background="@null"
-                android:textStyle="normal"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/eventLocation" />
-
             <Button
                 android:id="@+id/SetDate"
                 android:layout_width="120dp"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/custom_button"
                 android:text="Select Date"
                 android:textColor="#FFFFFF"
-                android:background="@drawable/custom_button"
                 android:typeface="normal"
-                android:layout_marginTop="10dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.25"
                 app:layout_constraintStart_toStartOf="parent"
@@ -327,11 +315,11 @@
                 android:id="@+id/SetTime"
                 android:layout_width="120dp"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/custom_button"
                 android:text="Select Time"
                 android:textColor="#FFFFFF"
-                android:background="@drawable/custom_button"
                 android:typeface="normal"
-                android:layout_marginTop="10dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.74"
                 app:layout_constraintStart_toStartOf="parent"
@@ -349,22 +337,39 @@
                 app:layout_constraintTop_toBottomOf="@id/eventDesc"
                 app:layout_constraintVertical_bias="0.908" />
 
-            <Button
-                android:id="@+id/textView3"
-                android:layout_width="135dp"
-                android:layout_height="43dp"
-                android:layout_marginTop="20dp"
-                android:text="Attendees"
-                android:textColor="#FFFFFF"
-                android:background="@drawable/custom_button"
-                android:typeface="normal"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.05"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/eventDesc"
-                app:layout_constraintVertical_bias="0.0" />
+            <ImageView
+                android:id="@+id/imageView4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                app:layout_constraintTop_toBottomOf="@+id/eventHost"
+                app:srcCompat="@drawable/ic_baseline_people_alt_24"
+                tools:layout_editor_absoluteX="0dp" />
+
+            <TextView
+                android:id="@+id/noOfAttendees"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="4dp"
+                android:text="TextView"
+                android:textColor="#67A7FF"
+                android:textSize="19sp"
+                android:textStyle="normal"
+                app:layout_constraintStart_toEndOf="@+id/imageView4"
+                app:layout_constraintTop_toBottomOf="@+id/eventHost" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="137dp"
+        app:layout_constraintBottom_toBottomOf="@+id/newEventImg"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 

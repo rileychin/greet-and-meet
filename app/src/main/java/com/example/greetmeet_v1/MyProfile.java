@@ -3,13 +3,10 @@ package com.example.greetmeet_v1;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.ContentResolver;
 import android.content.Intent;
 import android.net.Uri;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
@@ -41,31 +38,25 @@ import com.google.firebase.storage.UploadTask;
 import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
 
-import java.util.ArrayList;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.text.DateFormatSymbols;
 
-//implement AsyncTask here to run onCreate finish then run onStart()
 public class MyProfile extends AppCompatActivity {
-    private RecyclerView createdView, attending_bookmarked_recyclerView;
-    private HorizontalAdapterClass adapter;
-    Button logout,btnAttending,btnBookmarked,upload;
+    Button logout,upload;
     FirebaseAuth mAuth;
-    HorizontalAdapterClass.RecyclerViewClickListener listener;
-    AdapterClass.RecyclerViewClickListener listener2;
     private ProgressBar profileProgressbar;
     private ImageView imageView;
-    private TextView userName;
+    private TextView userName,userEmail,userID,userJoindate;
     private StorageTask mUploadTask;
     private DatabaseReference groupRef,user;
-    private ArrayList<Group> groupsCreated;
-    private ArrayList<Group> groupsAttending;
-    private ArrayList<Group> groupsBookmarked;
-    private ArrayList<String> groupsAttendingName,groupsBookmarkedName;
     private final int PICK_IMAGE_REQUEST = 1;
     private Uri mImageUri;
     private StorageReference mStorageRef;
     private DatabaseReference mDatabaseRef;
     FirebaseUser fuser;
-    private int state;
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
@@ -90,6 +81,7 @@ public class MyProfile extends AppCompatActivity {
                     public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
                         upload.setVisibility(View.GONE);
                         profileProgressbar.setVisibility(View.GONE);
+
                         Handler handler = new Handler();
                         handler.postDelayed(new Runnable() {
                             @Override
@@ -153,12 +145,6 @@ public class MyProfile extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_profile);
 
-
-        groupsCreated = new ArrayList<>();
-        groupsAttending = new ArrayList<>();
-        groupsBookmarked = new ArrayList<>();
-        groupsAttendingName = new ArrayList<>();
-        groupsBookmarkedName = new ArrayList<>();
         groupRef = FirebaseDatabase.getInstance().getReference("Group");
         mAuth = FirebaseAuth.getInstance();
         final FirebaseUser fuser = mAuth.getCurrentUser();
@@ -167,25 +153,12 @@ public class MyProfile extends AppCompatActivity {
 
         imageView = (ImageView)findViewById(R.id.profile_image);
         userName = (TextView)findViewById(R.id.userName);
+        userEmail = (TextView)findViewById(R.id.userEmail);
+        userID = (TextView)findViewById(R.id.userID);
+        userJoindate = (TextView)findViewById(R.id.userJoindate);
         logout = (Button)findViewById(R.id.logout);
-        btnAttending = (Button)findViewById(R.id.btnAttending);
-        btnBookmarked = (Button)findViewById(R.id.btnBookmarked);
         upload = (Button)findViewById(R.id.upload);
         profileProgressbar = (ProgressBar) findViewById(R.id.profileprogressBar);
-        profileProgressbar.setVisibility(View.GONE);
-
-        state=1; //state that switches between attending and bookmarked state
-
-
-        //recycler view for created groups
-        LinearLayoutManager layoutManager1
-                = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
-        createdView = findViewById(R.id.groupsLayout);
-        createdView.setLayoutManager(layoutManager1);
-
-        //recycler view for attending/bookmarked groups
-        attending_bookmarked_recyclerView = (RecyclerView)findViewById(R.id.attending_bookmarked_recycerView);
-        attending_bookmarked_recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -194,27 +167,6 @@ public class MyProfile extends AppCompatActivity {
                 // Sign-out successful.
                 Toast.makeText(MyProfile.this, "Signed Out", Toast.LENGTH_SHORT).show();
                 startActivity(new Intent(getApplicationContext(),MainActivity.class));
-            }
-        });
-
-        //display attending events
-        btnAttending.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                AdapterClass adapterClass1 = new AdapterClass(groupsAttending,listener2);
-                attending_bookmarked_recyclerView.setAdapter(adapterClass1);
-                Toast.makeText(MyProfile.this,"displaying attendings",Toast.LENGTH_LONG).show();
-                state = 1;
-            }
-        });
-        //display bookmarked events
-        btnBookmarked.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                AdapterClass adapterClass1 = new AdapterClass(groupsBookmarked,listener2);
-                attending_bookmarked_recyclerView.setAdapter(adapterClass1);
-                Toast.makeText(MyProfile.this,"displaying bookmarked",Toast.LENGTH_LONG).show();
-                state = 0;
             }
         });
 
@@ -238,43 +190,6 @@ public class MyProfile extends AppCompatActivity {
             }
         });
 
-        createdView.addOnItemTouchListener(new RecyclerItemClickListener(this, createdView, new RecyclerItemClickListener.OnItemClickListener() {
-            @Override
-            public void onItemClick(View view, int position) {
-                Intent intent = new Intent(MyProfile.this,EventDetails.class);
-                intent.putExtra("groupId",groupsCreated.get(position).getGroupId());
-                startActivity(intent);
-
-            }
-
-            @Override
-            public void onLongItemClick(View view, int position) {
-
-            }
-        }));
-
-
-        attending_bookmarked_recyclerView.addOnItemTouchListener(new RecyclerItemClickListener(this, attending_bookmarked_recyclerView, new RecyclerItemClickListener.OnItemClickListener() {
-            @Override
-            public void onItemClick(View view, int position) {
-                Intent intent = new Intent(MyProfile.this,EventDetails.class);
-                //check whether attending or bookmarked is selected at first
-                if (state == 1){
-                    intent.putExtra("groupId",groupsAttending.get(position).getGroupId());
-                }
-                else{
-                    intent.putExtra("groupId",groupsBookmarked.get(position).getGroupId());
-                }
-                startActivity(intent);
-            }
-
-            @Override
-            public void onLongItemClick(View view, int position) {
-
-            }
-        }));
-
-
         user.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -292,11 +207,13 @@ public class MyProfile extends AppCompatActivity {
                                         @Override
                                         public void onSuccess() {
                                             imageView.setVisibility(View.VISIBLE);
+                                            profileProgressbar.setVisibility(View.GONE);
                                             Animations.fadeInAndShowImage(imageView);
                                         }
 
                                         @Override
                                         public void onError() {
+                                            profileProgressbar.setVisibility(View.GONE);
                                             Toast.makeText(getApplicationContext(), "Image cannot be displayed", Toast.LENGTH_SHORT).show();
                                         }
                                     }
@@ -307,75 +224,29 @@ public class MyProfile extends AppCompatActivity {
                     Toast.makeText(MyProfile.this,"No Profile Pic",Toast.LENGTH_LONG).show();
                 }
 
-                //goes to here only after second activity click
-                if(snapshot.child("bookmarked").exists()){
-                    for(DataSnapshot ds : snapshot.child("bookmarked").getChildren()){
-                        groupsBookmarkedName.add(ds.getValue().toString());
-                    }
-                    groupRef.addListenerForSingleValueEvent(new ValueEventListener() {
-                        public void onDataChange(@NonNull DataSnapshot dataSnapshot){
-                            //createGroups list
-                            if (dataSnapshot.exists()){
-                                for (DataSnapshot ds: dataSnapshot.getChildren()){
-                                    if (!ds.getValue(Group.class).getDeleted()){
-                                        try {
-                                            String groupId = ds.getValue(Group.class).getGroupId();
-                                            if (groupsBookmarkedName.contains(groupId)) {
-                                                groupsBookmarked.add(0, ds.getValue(Group.class));
-                                            }
-                                        }catch (Exception e){
-                                            e.printStackTrace();
-                                        }
-                                    }
-                                }
-
-                                AdapterClass adapterClass1 = new AdapterClass(groupsBookmarked,listener2);
-                                attending_bookmarked_recyclerView.setAdapter(adapterClass1);
-
-                            }
-
-                        }
-
-                        public void onCancelled(@NonNull DatabaseError databaseError){
-                            Toast.makeText(MyProfile.this,databaseError.getMessage(),Toast.LENGTH_SHORT).show();
-                        }
-                    });
-                }
-                if(snapshot.child("attending").exists()){
-                    for(DataSnapshot ds: snapshot.child("attending").getChildren()){
-                        groupsAttendingName.add(ds.getValue().toString());
-                    }
-                    groupRef.addListenerForSingleValueEvent(new ValueEventListener() {
-                        public void onDataChange(@NonNull DataSnapshot dataSnapshot){
-
-                            //createGroups list
-                            if (dataSnapshot.exists()){
-                                for (DataSnapshot ds: dataSnapshot.getChildren()){
-                                    if (!ds.getValue(Group.class).getDeleted()){
-                                        try {
-                                            String groupId = ds.getValue(Group.class).getGroupId();
-                                            if (groupsAttendingName.contains(groupId)) {
-                                                groupsAttending.add(0, ds.getValue(Group.class));
-                                            }
-                                        }catch (Exception e){
-                                            e.printStackTrace();
-                                        }
-                                    }
-                                }
-                                AdapterClass adapterClass1 = new AdapterClass(groupsAttending,listener2);
-                                attending_bookmarked_recyclerView.setAdapter(adapterClass1);
-                            }
-
-                        }
-
-                        public void onCancelled(@NonNull DatabaseError databaseError){
-                            Toast.makeText(MyProfile.this,databaseError.getMessage(),Toast.LENGTH_SHORT).show();
-                        }
-                    });
-                }
-
                 String name = snapshot.child("name").getValue().toString();
+                String email = snapshot.child("email").getValue().toString();
+                String id = snapshot.child("id").getValue().toString();
+                String dateTime = snapshot.child("dateTime").getValue().toString();
+                SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+                Calendar calendar = Calendar.getInstance();
+                try {
+                    Date date = formatter.parse(dateTime);
+                    formatter.applyPattern("dd/MM/yyyy");
+                    calendar.setTime(date);
+                    int year = calendar.get(Calendar.YEAR);
+                    int month = calendar.get(Calendar.MONTH);
+                    String month_name = new DateFormatSymbols().getMonths()[month];
+                    int day = calendar.get(Calendar.DAY_OF_MONTH);
+                    String dateString = day + " " + month_name + " " + year;
+                    userJoindate.setText(dateString);
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
                 userName.setText(name);
+                userEmail.setText(email);
+                userID.setText(id);
+
             }
 
             @Override
@@ -417,36 +288,6 @@ public class MyProfile extends AppCompatActivity {
         });
 
         //adding groups created to horizontal recycler view
-        if (groupRef!=null){
-            groupRef.addValueEventListener(new ValueEventListener(){
-                public void onDataChange(@NonNull DataSnapshot dataSnapshot){
-
-                    //createGroups list
-                    if (dataSnapshot.exists()){
-                        for (DataSnapshot ds: dataSnapshot.getChildren()){
-                            if (!ds.getValue(Group.class).getDeleted()){
-                                try {
-                                    String groupId = ds.getValue(Group.class).getGroupId();
-                                    String hostId = dataSnapshot.child(groupId).child("host").child("id").getValue().toString();
-                                    if (fuser.getUid().equals(hostId)) {
-                                        groupsCreated.add(0, ds.getValue(Group.class));
-                                    }
-                                }catch (Exception e){
-                                    e.printStackTrace();
-                                }
-                            }
-                        }
-                        HorizontalAdapterClass adapterClass = new HorizontalAdapterClass(groupsCreated,listener);
-                        createdView.setAdapter(adapterClass);
-                    }
-
-                }
-
-                public void onCancelled(@NonNull DatabaseError databaseError){
-                    Toast.makeText(MyProfile.this,databaseError.getMessage(),Toast.LENGTH_SHORT).show();
-                }
-            });
-        }
 
     }
 
@@ -456,12 +297,5 @@ public class MyProfile extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         final FirebaseUser fuser = mAuth.getCurrentUser();
         DatabaseReference user = FirebaseDatabase.getInstance().getReference("User").child(fuser.getUid());
-        if (groupsCreated != null || groupsAttending != null || groupsBookmarked != null){
-            groupsCreated.clear();
-            groupsAttending.clear();
-            groupsBookmarked.clear();
-        }
-
-
     }
 }
