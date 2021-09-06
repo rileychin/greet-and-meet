@@ -79,10 +79,11 @@ public class EventDetails extends AppCompatActivity {
     ArrayList<Group> list;
     ArrayList<String> Listofusers;
     Button edit,attend,bookmark,save,cancel,delete,SetDate, SetTime;
-    TextView noOfAttendees;
+    TextView noOfAttendees,goToComments;
     int Date1,Hour1,Minute1,Month1,Year1;
     int Date2,Hour2,Minute2,Month2,Year2;
     private final int PICK_IMAGE_REQUEST = 1;
+    private static String eventId;
     boolean test1 = false, test2 = false;
     String customname;
     ImageButton profile;
@@ -161,6 +162,7 @@ public class EventDetails extends AppCompatActivity {
         eventLocation = (EditText)findViewById(R.id.eventLocation);
 
         noOfAttendees = (TextView)findViewById(R.id.noOfAttendees);
+        goToComments = (TextView)findViewById(R.id.goToComments);
 
         eventImage = (ImageView)findViewById(R.id.eventImg);
         eventImage.setVisibility(View.INVISIBLE);
@@ -194,6 +196,17 @@ public class EventDetails extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent start = new Intent(EventDetails.this,MyProfile.class);
+                startActivity(start);
+            }
+        });
+
+        goToComments.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View v) {
+
+                Intent start = new Intent(EventDetails.this, EventComments.class);
+                start.putExtra("eventId",eventId);
                 startActivity(start);
             }
         });
@@ -233,7 +246,8 @@ public class EventDetails extends AppCompatActivity {
                 String name = snapshot.child("groupName").getValue().toString();
                 eventName.setText(name);
 
-
+                String id = snapshot.child("groupId").getValue().toString();
+                eventId = id;
 
                 //set event desc
                 String desc = snapshot.child("groupDesc").getValue().toString();

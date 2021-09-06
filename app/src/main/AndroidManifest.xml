@@ -8,11 +8,12 @@
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
-        android:roundIcon="@mipmap/ic_launcher_round"
         android:label="GreetAndMeet"
+        android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MyEvents"></activity>
+        <activity android:name=".EventComments"></activity>
+        <activity android:name=".MyEvents" />
         <activity android:name=".SearchActivity" />
         <activity
             android:name=".MyProfile"
