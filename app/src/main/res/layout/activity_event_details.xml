@@ -219,7 +219,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:layout_marginTop="25dp"
-                android:layout_marginEnd="220dp"
+                android:layout_marginEnd="300dp"
                 app:layout_constraintEnd_toEndOf="@+id/edit"
                 app:layout_constraintTop_toBottomOf="@+id/eventDate" >
                 <ImageButton
@@ -244,7 +244,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:layout_marginStart="50dp"
+                android:layout_marginStart="20dp"
                 android:layout_marginTop="25dp"
                 app:layout_constraintStart_toEndOf="@+id/bookMarkLayout"
                 app:layout_constraintTop_toBottomOf="@+id/eventDate" >
@@ -265,19 +265,58 @@
                     android:text="Attend"/>
             </LinearLayout>
 
+            <LinearLayout
+                android:id="@+id/commentsLayout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="25dp"
+                app:layout_constraintStart_toEndOf="@+id/attendLayout"
+                app:layout_constraintTop_toBottomOf="@+id/eventDate" >
+                <ImageButton
+                    android:id="@+id/comments"
+                    android:layout_gravity="center"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:background="@drawable/comments"
+                    />
+                <TextView
+                    android:id="@+id/commentsText"
+                    android:textColor="#1C4CE5"
+                    android:textAlignment="center"
+                    android:layout_gravity="center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Comments"/>
+            </LinearLayout>
 
-            <Button
-                android:id="@+id/edit"
-                android:layout_width="87dp"
-                android:layout_height="44dp"
+            <LinearLayout
+                android:id="@+id/editLayout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
                 android:layout_marginTop="18dp"
                 android:layout_marginEnd="16dp"
-                android:background="@drawable/custom_button"
-                android:text="Edit"
-                android:textColor="#FFFFFF"
-                android:typeface="normal"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/eventName" />
+                app:layout_constraintTop_toBottomOf="@+id/eventName"  >
+                <ImageButton
+                    android:id="@+id/edit"
+                    android:layout_gravity="center"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:background="@drawable/edit"
+                    />
+                <TextView
+                    android:id="@+id/editText"
+                    android:textColor="#1C4CE5"
+                    android:textAlignment="center"
+                    android:layout_gravity="center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Edit"/>
+            </LinearLayout>
+
 
             <Button
                 android:id="@+id/save"
@@ -289,7 +328,7 @@
                 android:text="save"
                 android:textColor="#FFFFFF"
                 android:typeface="normal"
-                app:layout_constraintEnd_toEndOf="@+id/edit"
+                app:layout_constraintEnd_toEndOf="@+id/editLayout"
                 app:layout_constraintTop_toBottomOf="@+id/delete" />
 
             <Button
@@ -383,13 +422,6 @@
                 app:layout_constraintStart_toEndOf="@+id/imageView4"
                 app:layout_constraintTop_toBottomOf="@+id/eventHost" />
 
-            <TextView
-                android:layout_marginTop="10dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id= "@+id/goToComments"
-                android:text="Go to comments"
-                app:layout_constraintTop_toBottomOf="@+id/eventDesc"/>
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 

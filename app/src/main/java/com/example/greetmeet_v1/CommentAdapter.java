@@ -16,8 +16,10 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 import java.util.Locale;
+import java.util.TimeZone;
 
 public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.CommentViewHolder> {
 
@@ -71,8 +73,10 @@ public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.CommentV
     private String timestampToString(long time) {
 
         Calendar calendar = Calendar.getInstance(Locale.ENGLISH);
+        TimeZone sgTimeZone = TimeZone.getTimeZone("GMT+8");
+        calendar.setTimeZone(sgTimeZone);
         calendar.setTimeInMillis(time);
-        String date = DateFormat.format("hh:mm",calendar).toString();
+        String date = DateFormat.format("EEE, d MMM yyyy hh:mm:ss a",calendar).toString();
         return date;
 
 

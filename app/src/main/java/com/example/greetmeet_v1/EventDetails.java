@@ -78,9 +78,9 @@ public class EventDetails extends AppCompatActivity {
     DatabaseReference ref,ref2;
     ArrayList<Group> list;
     ArrayList<String> Listofusers;
-    Button edit,save,cancel,delete,SetDate, SetTime;
-    ImageButton attend,bookmark;
-    TextView noOfAttendees,goToComments,attendText,bookMarkText;
+    Button save,cancel,delete,SetDate, SetTime;
+    ImageButton attend,bookmark,comments,edit;
+    TextView noOfAttendees,attendText,bookMarkText,commentsText,editText;
     int Date1,Hour1,Minute1,Month1,Year1;
     int Date2,Hour2,Minute2,Month2,Year2;
     private final int PICK_IMAGE_REQUEST = 1;
@@ -163,9 +163,10 @@ public class EventDetails extends AppCompatActivity {
         eventLocation = (EditText)findViewById(R.id.eventLocation);
 
         noOfAttendees = (TextView)findViewById(R.id.noOfAttendees);
-        goToComments = (TextView)findViewById(R.id.goToComments);
         attendText = (TextView)findViewById(R.id.attendText);
         bookMarkText = (TextView)findViewById(R.id.bookMarkText);
+        commentsText = (TextView)findViewById(R.id.commentsText);
+        editText = (TextView)findViewById(R.id.editText);
 
         eventImage = (ImageView)findViewById(R.id.eventImg);
         eventImage.setVisibility(View.INVISIBLE);
@@ -176,7 +177,7 @@ public class EventDetails extends AppCompatActivity {
         progressBar =  findViewById(R.id.progressBar);
 
         eventDate = (EditText)findViewById(R.id.eventDate);
-        edit = (Button)findViewById(R.id.edit);
+
         save = (Button)findViewById(R.id.save);
         SetDate = (Button)findViewById(R.id.SetDate);
         SetTime = (Button)findViewById(R.id.SetTime);
@@ -193,6 +194,8 @@ public class EventDetails extends AppCompatActivity {
 
         bookmark = (ImageButton) findViewById(R.id.bookMark);
         attend = (ImageButton)findViewById(R.id.attend);
+        comments = (ImageButton)findViewById(R.id.comments);
+        edit = (ImageButton)findViewById(R.id.edit);
 
         profile = (ImageButton)findViewById(R.id.accountButton);
         profile.setOnClickListener(new View.OnClickListener() {
@@ -203,7 +206,7 @@ public class EventDetails extends AppCompatActivity {
             }
         });
 
-        goToComments.setOnClickListener(new View.OnClickListener(){
+        comments.setOnClickListener(new View.OnClickListener(){
 
             @Override
             public void onClick(View v) {
@@ -348,8 +351,11 @@ public class EventDetails extends AppCompatActivity {
                 eventDate.setEnabled(true);
                 bookmark.setVisibility(View.GONE);
                 attend.setVisibility(View.GONE);
+                comments.setVisibility(View.GONE);
                 bookMarkText.setVisibility(View.GONE);
                 attendText.setVisibility(View.GONE);
+                commentsText.setVisibility(View.GONE);
+                editText.setVisibility(View.GONE);
                 edit.setVisibility(View.GONE);
                 eventDate.setVisibility(View.GONE);
                 save.setVisibility(View.VISIBLE);
@@ -470,8 +476,11 @@ public class EventDetails extends AppCompatActivity {
                                                         newEventImage.setVisibility(View.GONE);
                                                         bookmark.setVisibility(View.VISIBLE);
                                                         attend.setVisibility(View.VISIBLE);
+                                                        comments.setVisibility(View.VISIBLE);
                                                         bookMarkText.setVisibility(View.VISIBLE);
                                                         attendText.setVisibility(View.VISIBLE);
+                                                        commentsText.setVisibility(View.VISIBLE);
+                                                        editText.setVisibility(View.VISIBLE);
                                                         edit.setVisibility(View.VISIBLE);
                                                         eventDate.setVisibility(View.VISIBLE);
                                                         listofusers.setVisibility(View.GONE);
@@ -523,8 +532,11 @@ public class EventDetails extends AppCompatActivity {
                                         newEventImage.setVisibility(View.GONE);
                                         bookmark.setVisibility(View.VISIBLE);
                                         attend.setVisibility(View.VISIBLE);
+                                        comments.setVisibility(View.VISIBLE);
                                         bookMarkText.setVisibility(View.VISIBLE);
                                         attendText.setVisibility(View.VISIBLE);
+                                        commentsText.setVisibility(View.VISIBLE);
+                                        editText.setVisibility(View.VISIBLE);
                                         edit.setVisibility(View.VISIBLE);
                                         eventDate.setVisibility(View.VISIBLE);
                                         listofusers.setVisibility(View.VISIBLE);
@@ -699,8 +711,11 @@ public class EventDetails extends AppCompatActivity {
                 newEventImage.setVisibility(View.GONE);
                 bookmark.setVisibility(View.VISIBLE);
                 attend.setVisibility(View.VISIBLE);
+                comments.setVisibility(View.VISIBLE);
                 bookMarkText.setVisibility(View.VISIBLE);
                 attendText.setVisibility(View.VISIBLE);
+                commentsText.setVisibility(View.VISIBLE);
+                editText.setVisibility(View.VISIBLE);
                 edit.setVisibility(View.VISIBLE);
                 eventDate.setVisibility(View.VISIBLE);
                 listofusers.setVisibility(View.GONE);
@@ -807,16 +822,9 @@ public class EventDetails extends AppCompatActivity {
     public void display_succes_bookmark(AlertDialog.Builder builder2){
         builder2.setTitle("Added to Bookmarks");
         builder2.setMessage("");
-        builder2.setPositiveButton("Go to bookmarks", new DialogInterface.OnClickListener() {
+        builder2.setPositiveButton("OK", new DialogInterface.OnClickListener() {
             @Override
             //intent to bookmarks
-            public void onClick(DialogInterface dialog, int which) {
-                Intent intent = new Intent(EventDetails.this,MyProfile.class);
-                startActivity(intent);
-            }
-        });
-        builder2.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-            @Override
             public void onClick(DialogInterface dialog, int which) {
                 dialog.cancel();
             }
@@ -870,42 +878,6 @@ public class EventDetails extends AppCompatActivity {
         AlertDialog alertDialog = builder.create();
         //show alert dialog
         alertDialog.show();
-    }
-    public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder>{
-        ArrayList<String> ListOfUsers;
-
-        public class ViewHolder extends RecyclerView.ViewHolder{
-            TextView UserNames;
-
-            public ViewHolder(@NonNull View itemView) {
-                super(itemView);
-                UserNames = (TextView) itemView.findViewById(R.id.Recycleview1);
-
-            }
-        }
-
-        public CustomAdapter(ArrayList<String> listOfUsers) {
-            ListOfUsers = listOfUsers;
-        }
-
-        @NonNull
-        @Override
-        public CustomAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-            View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.userdisplay, parent,false);
-            return new ViewHolder(view);
-        }
-
-        @Override
-        public void onBindViewHolder(@NonNull CustomAdapter.ViewHolder holder, int position) {
-            holder.UserNames.setText(ListOfUsers.get(position));
-        }
-
-        @Override
-        public int getItemCount() {
-            return ListOfUsers.size();
-        }
-
-
     }
 }
 
