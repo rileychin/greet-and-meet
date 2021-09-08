@@ -68,8 +68,6 @@ public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.CommentV
         }
     }
 
-
-
     private String timestampToString(long time) {
 
         Calendar calendar = Calendar.getInstance(Locale.ENGLISH);
