@@ -78,8 +78,9 @@ public class EventDetails extends AppCompatActivity {
     DatabaseReference ref,ref2;
     ArrayList<Group> list;
     ArrayList<String> Listofusers;
-    Button edit,attend,bookmark,save,cancel,delete,SetDate, SetTime;
-    TextView noOfAttendees,goToComments;
+    Button edit,save,cancel,delete,SetDate, SetTime;
+    ImageButton attend,bookmark;
+    TextView noOfAttendees,goToComments,attendText,bookMarkText;
     int Date1,Hour1,Minute1,Month1,Year1;
     int Date2,Hour2,Minute2,Month2,Year2;
     private final int PICK_IMAGE_REQUEST = 1;
@@ -163,6 +164,8 @@ public class EventDetails extends AppCompatActivity {
 
         noOfAttendees = (TextView)findViewById(R.id.noOfAttendees);
         goToComments = (TextView)findViewById(R.id.goToComments);
+        attendText = (TextView)findViewById(R.id.attendText);
+        bookMarkText = (TextView)findViewById(R.id.bookMarkText);
 
         eventImage = (ImageView)findViewById(R.id.eventImg);
         eventImage.setVisibility(View.INVISIBLE);
@@ -188,8 +191,8 @@ public class EventDetails extends AppCompatActivity {
         cancel = (Button)findViewById(R.id.cancel);
         cancel.setVisibility(View.GONE);
 
-        bookmark = (Button)findViewById(R.id.bookMark);
-        attend = (Button)findViewById(R.id.attend);
+        bookmark = (ImageButton) findViewById(R.id.bookMark);
+        attend = (ImageButton)findViewById(R.id.attend);
 
         profile = (ImageButton)findViewById(R.id.accountButton);
         profile.setOnClickListener(new View.OnClickListener() {
@@ -345,6 +348,8 @@ public class EventDetails extends AppCompatActivity {
                 eventDate.setEnabled(true);
                 bookmark.setVisibility(View.GONE);
                 attend.setVisibility(View.GONE);
+                bookMarkText.setVisibility(View.GONE);
+                attendText.setVisibility(View.GONE);
                 edit.setVisibility(View.GONE);
                 eventDate.setVisibility(View.GONE);
                 save.setVisibility(View.VISIBLE);
@@ -465,6 +470,8 @@ public class EventDetails extends AppCompatActivity {
                                                         newEventImage.setVisibility(View.GONE);
                                                         bookmark.setVisibility(View.VISIBLE);
                                                         attend.setVisibility(View.VISIBLE);
+                                                        bookMarkText.setVisibility(View.VISIBLE);
+                                                        attendText.setVisibility(View.VISIBLE);
                                                         edit.setVisibility(View.VISIBLE);
                                                         eventDate.setVisibility(View.VISIBLE);
                                                         listofusers.setVisibility(View.GONE);
@@ -516,6 +523,8 @@ public class EventDetails extends AppCompatActivity {
                                         newEventImage.setVisibility(View.GONE);
                                         bookmark.setVisibility(View.VISIBLE);
                                         attend.setVisibility(View.VISIBLE);
+                                        bookMarkText.setVisibility(View.VISIBLE);
+                                        attendText.setVisibility(View.VISIBLE);
                                         edit.setVisibility(View.VISIBLE);
                                         eventDate.setVisibility(View.VISIBLE);
                                         listofusers.setVisibility(View.VISIBLE);
@@ -690,6 +699,8 @@ public class EventDetails extends AppCompatActivity {
                 newEventImage.setVisibility(View.GONE);
                 bookmark.setVisibility(View.VISIBLE);
                 attend.setVisibility(View.VISIBLE);
+                bookMarkText.setVisibility(View.VISIBLE);
+                attendText.setVisibility(View.VISIBLE);
                 edit.setVisibility(View.VISIBLE);
                 eventDate.setVisibility(View.VISIBLE);
                 listofusers.setVisibility(View.GONE);

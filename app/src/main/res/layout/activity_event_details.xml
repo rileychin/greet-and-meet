@@ -150,7 +150,7 @@
                 android:textSize="18sp"
                 android:textStyle="normal"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/bookMark" />
+                app:layout_constraintTop_toBottomOf="@+id/bookMarkLayout" />
 
             <EditText
                 android:id="@+id/eventDesc"
@@ -213,33 +213,58 @@
                 app:layout_constraintRight_toLeftOf="@+id/eventLocation"
                 app:layout_constraintTop_toBottomOf="@+id/eventHost" />
 
-            <Button
-                android:id="@+id/bookMark"
-                android:layout_width="150dp"
-                android:layout_height="41dp"
+            <LinearLayout
+                android:id="@+id/bookMarkLayout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
                 android:layout_marginTop="25dp"
                 android:layout_marginEnd="220dp"
-                android:background="@drawable/custom_button"
-                android:text="Bookmark"
-                android:textColor="#FFFFFF"
-                android:textSize="18dp"
-                android:typeface="normal"
                 app:layout_constraintEnd_toEndOf="@+id/edit"
-                app:layout_constraintTop_toBottomOf="@+id/eventDate" />
+                app:layout_constraintTop_toBottomOf="@+id/eventDate" >
+                <ImageButton
+                    android:id="@+id/bookMark"
+                    android:layout_gravity="center"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:background="@drawable/bookmark"
+                    />
+                <TextView
+                    android:id="@+id/bookMarkText"
+                    android:textColor="#1C4CE5"
+                    android:textAlignment="center"
+                    android:layout_gravity="center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Bookmark"/>
+            </LinearLayout>
 
-            <Button
-                android:id="@+id/attend"
-                android:layout_width="150dp"
-                android:layout_height="39dp"
+            <LinearLayout
+                android:id="@+id/attendLayout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
                 android:layout_marginStart="50dp"
                 android:layout_marginTop="25dp"
-                android:background="@drawable/custom_button"
-                android:text="Attend"
-                android:textColor="#FFFFFF"
-                android:textSize="18dp"
-                android:typeface="normal"
-                app:layout_constraintStart_toEndOf="@+id/bookMark"
-                app:layout_constraintTop_toBottomOf="@+id/eventDate" />
+                app:layout_constraintStart_toEndOf="@+id/bookMarkLayout"
+                app:layout_constraintTop_toBottomOf="@+id/eventDate" >
+                <ImageButton
+                    android:id="@+id/attend"
+                    android:layout_gravity="center"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:background="@drawable/attend"
+                    />
+                <TextView
+                    android:id="@+id/attendText"
+                    android:textColor="#1C4CE5"
+                    android:textAlignment="center"
+                    android:layout_gravity="center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Attend"/>
+            </LinearLayout>
+
 
             <Button
                 android:id="@+id/edit"
@@ -294,7 +319,6 @@
                 android:typeface="normal"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/eventName" />
-
 
             <Button
                 android:id="@+id/SetDate"

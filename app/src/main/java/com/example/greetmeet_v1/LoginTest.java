@@ -28,6 +28,13 @@ public class LoginTest extends AppCompatActivity {
     TextView textemail, textname, textdatetime,textverified;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        try
+        {
+            this.getSupportActionBar().hide();
+        }
+        catch (NullPointerException e){}
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_test);
         textemail = findViewById(R.id.TextEmail);
