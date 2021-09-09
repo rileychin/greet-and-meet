@@ -301,8 +301,10 @@ public class EventDetails extends AppCompatActivity {
                 //set visibility of edit
                 if (!fuser.getUid().equals(snapshot.child("host").child("id").getValue().toString())) {
                     edit.setVisibility(View.GONE);
+                    editText.setVisibility(View.GONE);
                 } else{
                     edit.setVisibility(View.VISIBLE);
+                    editText.setVisibility(View.VISIBLE);
                 }
             }
 
@@ -803,17 +805,14 @@ public class EventDetails extends AppCompatActivity {
                     startActivity(intent3);
                     //finish();
                 }
-
                 if (id == R.id.ic_home) {
                     Intent intent1 = new Intent(EventDetails.this, MainFeed.class);
                     startActivity(intent1);
                     //finish();
                 }
-
                 if (id == R.id.ic_search){
                     startActivity(new Intent(EventDetails.this, SearchActivity.class));
                 }
-
                 return true;
             }
         });
