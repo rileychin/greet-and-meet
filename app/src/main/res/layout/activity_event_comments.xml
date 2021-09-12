@@ -55,6 +55,7 @@
             app:layout_constraintTop_toTopOf="@+id/post_detail_currentuser_img" />
 
         <Button
+            android:backgroundTint="#488AC7"
             android:id="@+id/post_detail_add_comment_btn"
             android:layout_width="80dp"
             android:layout_height="57dp"

@@ -109,26 +109,33 @@ public class EventComments extends AppCompatActivity {
                 btnAddComment.setVisibility(View.INVISIBLE);
                 DatabaseReference commentReference = firebaseDatabase.getReference(COMMENT_KEY).child(PostKey).push();
                 String comment_content = editTextComment.getText().toString();
-                String uid = fuser.getUid();
-                String uname = userName;
-                String uimg = userURL;
+                if(comment_content.isEmpty()){
+                    showMessage("Enter a comment before submitting");
+                    btnAddComment.setVisibility(View.VISIBLE);
+                }
+                else{
+                    String uid = fuser.getUid();
+                    String uname = userName;
+                    String uimg = userURL;
 
-                Comment comment = new Comment(comment_content,uid,uimg,uname);
+                    Comment comment = new Comment(comment_content,uid,uimg,uname);
 
-                commentReference.setValue(comment).addOnSuccessListener(new OnSuccessListener<Void>() {
-                    @Override
-                    public void onSuccess(Void aVoid) {
-                        showMessage("comment added");
-                        editTextComment.setText("");
-                        btnAddComment.setVisibility(View.VISIBLE);
-                    }
-                }).addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        showMessage("fail to add comment: " + e.getMessage());
-                    }
-                });
+                    commentReference.setValue(comment).addOnSuccessListener(new OnSuccessListener<Void>() {
+                        @Override
+                        public void onSuccess(Void aVoid) {
+                            showMessage("comment added");
+                            editTextComment.setText("");
+                            btnAddComment.setVisibility(View.VISIBLE);
+                        }
+                    }).addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            showMessage("fail to add comment: " + e.getMessage());
+                        }
+                    });
+                }
             }
+
         });
 
         iniRvComment();

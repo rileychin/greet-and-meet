@@ -13,6 +13,7 @@
         android:layout_width="130dp"
         android:layout_height="wrap_content"
         android:text="Choose file"
+        android:backgroundTint="#488AC7"
         android:textSize="18dp"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
@@ -48,6 +49,7 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
         android:text="Finish"
+        android:backgroundTint="#488AC7"
         android:textSize="18dp"
         android:textColor="#FFFFFF"
         android:background="@drawable/custom_button"/>
@@ -57,6 +59,7 @@
         android:id="@+id/button_skip"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:backgroundTint="#488AC7"
         android:text="skip"
         android:textSize="18dp"
         android:layout_alignParentRight="true"

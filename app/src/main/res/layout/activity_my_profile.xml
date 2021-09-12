@@ -11,8 +11,8 @@
         android:layout_width="match_parent"
         android:layout_height="222dp"
         android:layout_alignParentBottom="true"
-        app:mwhStartColor="#559CFD"
-        app:mwhCloseColor="#B3D3FF"
+        app:mwhStartColor="#1A2C78"
+        app:mwhCloseColor="#46B7C1"
         tools:ignore="MissingConstraints"/>
 
 
@@ -46,6 +46,7 @@
         android:layout_marginRight="10dp"
         android:layout_gravity="right"
         android:background="@drawable/custom_button"
+        android:backgroundTint="#488AC7"
         android:text="Logout"
         android:textColor="#FFFFFF"
         android:typeface="normal"
@@ -58,7 +59,7 @@
         android:layout_width="match_parent"
         android:layout_height="70dp"
         android:layout_marginTop="669dp"
-        android:background="#B3D3FF"
+        android:background="#488AC7"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0"

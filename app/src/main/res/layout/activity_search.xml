@@ -13,9 +13,8 @@
         android:text="@string/greet_meet"
         android:textSize="35sp"
         android:fontFamily="cursive"
-        android:textColor="#FFFF"
+        android:textColor="#488AC7"
         android:gravity="center"
-        android:background="#B3D3FF"
         app:layout_constraintBottom_toTopOf="@+id/refresh"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -29,8 +28,7 @@
         android:layout_height="50dp"
         android:paddingBottom="10dp"
         android:paddingTop="10dp"
-        android:background="#B3D3FF"
-        app:srcCompat="@drawable/ic_baseline_account"
+        android:background="@drawable/person"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginTop="11dp"
         app:layout_constraintRight_toRightOf="parent"
@@ -38,22 +36,6 @@
         tools:layout_editor_absoluteX="9dp"
         tools:layout_editor_absoluteY="9dp"
         tools:ignore="VectorDrawableCompat" />
-
-    <ImageButton
-        android:id="@+id/settings"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:paddingBottom="10dp"
-        android:paddingTop="10dp"
-        android:background="#B3D3FF"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="11dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginLeft="20dp"
-        tools:layout_editor_absoluteX="9dp"
-        tools:layout_editor_absoluteY="9dp"
-        tools:ignore="VectorDrawableCompat" />
-
 
     <SearchView
         android:id="@+id/searchView"
@@ -80,7 +62,7 @@
         android:layout_width="match_parent"
         android:layout_height="70dp"
         android:layout_marginBottom="0dp"
-        android:background="#B3D3FF"
+        android:background="#488AC7"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0"

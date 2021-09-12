@@ -560,7 +560,7 @@ public class EventDetails extends AppCompatActivity {
                             }
                         }
                         else{
-                            Toast.makeText(EventDetails.this, "Missing Data Fields and No image selected!", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(EventDetails.this, "Missing Data Fields Or No image selected!", Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
